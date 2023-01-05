@@ -5,7 +5,7 @@ function App() {
   return (
     <div className="App">
       <SignaturePad penColor='green'
-    canvasProps={{width: 500, height: 200, className: 'sigCanvas'}} />,
+    canvasProps={{width: "100vw", height: "100vh", className: 'sigCanvas'}} />,
     </div>
   );
 }
