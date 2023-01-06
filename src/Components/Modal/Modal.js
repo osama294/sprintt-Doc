@@ -3,12 +3,12 @@ import Input from '../Inputs/Input'
 import { AiFillCloseCircle } from 'react-icons/ai'
 import './Modal.css'
 import datas from '../../Data/items.json';
-import { useState } from 'react'
+import { useState ,useEffect} from 'react'
 import Sbutton from '../Button/Sbutton';
 
 function Modal({ setShow, itemNo,setItemVal, onSelect }) {
     const [hover, setHover] = useState("")
-    const [search, setSearch] = useState("")
+    const [search, setSearch] = useState("") 
     const [data, setData] = useState(datas)
     const handleChange = (e) => {
         console.log("testament", e.target.value)

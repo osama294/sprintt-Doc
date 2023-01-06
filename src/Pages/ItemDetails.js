@@ -4,32 +4,36 @@ import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import './Details.css'
 function ItemDetails() {
-    let tempObj = { item: "", count: "" }
-    const [itemNames, setItemNames] = useState([])
     const [disable, setDisable] = useState(true)
     const [details, setDetails] = useState({
         businessName: "",
         itemCount: "",
-
-        quantity: ""
     });
+    var temp;
+    temp = { item: "", count: "" }
+    const [itemArr, setItemArr] = useState([])
 
-    const getValuesInParent = (index, value,quantity) => {
-        console.log("old testament", index, value , quantity)
+    const getValuesInParent = (index, value, quantity) => {
+        let t = itemArr
+        t[index -1] = { item: value, count: quantity }
+        console.log("old testament", t)
     }
 
-    var itemsArr = []
     useEffect(() => {
-        console.log("Details", details)
+        let d = []
         if (details.itemCount != 0) {
-            for (var i = 0; i < details.itemCount; i++) {
-                var temp;
-                temp = i;
-                itemsArr.push(i);
-                setItemNames([...itemNames, tempObj])
-                console.log("count", itemNames)
+            for (var i = 1; i <= details.itemCount; i++) {
+                d = [...d, temp]
             }
+            setItemArr(d)
+            console.log("older testament", d)
         }
+    if(itemArr.length !==0) {  
+         for(var i = 0 ; i < itemArr.length ;i++){
+            if(itemArr[i].item == ''){
+                console.log("item",itemArr[i].item == '')
+            }
+        }}
     }, [details])
 
     const handleChange = (e) => {
@@ -39,14 +43,7 @@ function ItemDetails() {
         });
     };
 
-    const onchangeInput = (val, index) => {
-        let temp = itemNames;
 
-        // itemNames[index] = val.target.value;
-        console.log("optp", temp);
-        // setItemNames(temp);
-        // console.log(temp);
-    };
     return (
 
         <>
@@ -56,7 +53,7 @@ function ItemDetails() {
                 <div className='count-container'>
                     {
                         details.itemCount && Array.from({ length: details.itemCount }).map((name, index) => {
-                            return <ItemCount key={index} name={name} onSelect={getValuesInParent} indi={index + 1} onchangeInput={onchangeInput} />
+                            return <ItemCount key={index} name={name} onSelect={getValuesInParent} indi={index + 1}  />
                         })
                     }
                 </div>
