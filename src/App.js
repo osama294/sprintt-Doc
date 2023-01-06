@@ -21,8 +21,7 @@ function App() {
   console.log("const",tab)
   return (
     <div className="App">
-      {/* <SignaturePad penColor='black'
-    canvasProps={{width: "1000", height: "1000", className: 'sigCanvas'}} />, */}
+   
     <div className='container'>
       <div className='upper'>
         <Logo logo={logos}/>
