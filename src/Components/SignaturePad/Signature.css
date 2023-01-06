@@ -1,11 +1,33 @@
 .sigan {
-  max-width: 335px;
-  max-height: 200px;
+  max-width: 365px;
+}
+.sigan .sigan-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sigan .field-name {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+  color: black;
+}
+.sigan .span {
+  font-family: "Poppins";
+  font-style: normal;
+  font-weight: 400;
+  cursor: pointer;
+  font-size: 10px;
+  line-height: 20px;
+  text-align: center;
+  -webkit-text-decoration-line: underline;
+          text-decoration-line: underline;
+  color: rgba(0, 0, 0, 0.5);
 }
 .sigan .sigCanvas {
   width: 100%;
-  height: 100%;
-  max-width: 335px;
-  max-height: 200px;
+  height: 240px;
   border: 1px solid black;
 }/*# sourceMappingURL=Signature.css.map */

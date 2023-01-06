@@ -1,10 +1,35 @@
-.sigan{ max-width: 335px;
-    max-height: 200px;
+.sigan{ max-width: 365px;
+    // max-height: 200px;
+    .sigan-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+.field-name{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: black;
+    // margin-bottom: 9px;
+}
+.span{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: rgba(0, 0, 0, 0.5);
+}
     // border: 1px  black;
 .sigCanvas{
     width: 100%;
-    height: 100%;
-    max-width: 335px;
-    max-height: 200px;
+    height: 240px;
+    // max-width: 3px;
+    // max-height: 200px;
     border: 1px solid black;
 }}

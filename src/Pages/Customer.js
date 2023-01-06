@@ -1,4 +1,5 @@
 import React,{useState,useEffect} from 'react'
+import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import Signature from '../Components/SignaturePad/Signature';
@@ -30,7 +31,7 @@ function Customer() {
      <Input bname="Customer Name" name="customerName" placeholder="Steven Strange" type="text" handleChange={handleChange}/>
      <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/>
      <Signature/>
-     
+     <Button name="Proceed Next"/>
     </div>
     </>
     

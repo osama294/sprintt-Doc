@@ -17,6 +17,11 @@ function Signature() {
   return (
     <>
     <div className='sigan'>
+      <div className='sigan-row'>
+         <p className='field-name'>Add Signature Here</p>
+         <span className='span' onClick={() => sigCanvas.current.clear()}>Clear Signature</span>
+      </div>
+    
     <SignatureCanvas penColor="black"
                 canvasProps={{className: 'sigCanvas'}}
                 ref={sigCanvas} />
