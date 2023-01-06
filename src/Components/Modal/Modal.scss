@@ -1,7 +1,14 @@
 .modal {
     position: absolute;
     top: 50%;
-
+   .btn-row{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+   }
     left: 50%;
     display: flex;
     flex-direction: column;
@@ -36,8 +43,10 @@
                 font-style: normal;
                 font-weight: 400;
                 font-size: 12px;
+                width: 100%;
                 line-height: 18px;
                 padding: 5px 0px 5px 13px;   
+                text-align: initial;
                 color: #000000;
             }
             .item-hover{
@@ -70,7 +79,7 @@
         align-items: flex-end;
         .close{
         color: #D3BC8C;
-        padding: 10px ;
+        padding: 10px  10px 0px 0px;
         font-size: 24px;
         }
         justify-content: flex-end;

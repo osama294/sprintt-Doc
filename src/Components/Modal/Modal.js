@@ -4,6 +4,7 @@ import { AiFillCloseCircle } from 'react-icons/ai'
 import './Modal.css'
 import datas from '../../Data/items.json';
 import { useState } from 'react'
+import Sbutton from '../Button/Sbutton';
 
 function Modal({ setShow, itemNo,setItemVal, onSelect }) {
     const [hover, setHover] = useState("")
@@ -41,7 +42,10 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
                             }
                         </div>
                     </div>
-
+                    <div className='btn-row'>
+                        <Sbutton  name="Close" type="close" func={setShow} onClick={()=>{console.log("close")}}/>
+                        <Sbutton name="Confirm" type="confirm" func={setShow} onClick={()=>{console.log("close")}}/>
+                    </div>
                 </div>
             </div>
         </div>

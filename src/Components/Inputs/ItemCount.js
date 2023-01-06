@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import Modal from '../Modal/Modal'
 import './input.css'
+import {AiFillMinusSquare,AiFillPlusSquare} from 'react-icons/ai'
+// import {BsFillPlusSquareFill} from 'react-icons/bs'
 function ItemCount({ bname, name, indi, placeholder, type, onSelect }) {
     const [show, setShow] = useState(false)
     const [itemVal, setItemVal] = useState("")
+    const [quantity, setQuantity] = useState(1)
 
 
     const getValue = (index, value) => {
         setItemVal(value)
-        onSelect(index, value)
         console.log('check values', index, value)
     }
 
@@ -46,7 +48,9 @@ function ItemCount({ bname, name, indi, placeholder, type, onSelect }) {
             </div>
             <div className='input-quantity'>
                 <p className='field-name'>Quantity</p>
-                <input placeholder={placeholder} type="number" className="quantity" value={1} name={name} />
+                <p className='plus' onClick={()=>{setQuantity(quantity + 1)}}><AiFillPlusSquare/></p>
+                <p className='minus'onClick={()=>{setQuantity(quantity - 1)}} ><AiFillMinusSquare/></p>
+                <input placeholder={placeholder} type="number" className="quantity" onChange={(e)=>{onSelect(indi,itemVal,quantity)}} value={quantity} name={name} />
             </div>
             {show && <Modal key={indi} itemNo={indi} onSelect={getValue} setItemVal={setItemVal} setShow={setShow} />}
         </div>

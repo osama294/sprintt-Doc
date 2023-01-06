@@ -41,10 +41,29 @@
         color: black;
         margin-bottom: 9px;
     }  
+    .plus{
+        margin: 0px;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    right: 0;
+    bottom: 0;
+    position: absolute;
+    }
+    .minus{
+        margin: 0px;
+    font-size: 40px;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    }
     .quantity{
         font-family: 'Poppins';
         font-style: normal;
         max-width: 131px;
+        width: 80px;
         // width: 100%;
         font-weight: 400;
         border:solid 1px #797D88;
@@ -52,7 +71,7 @@
         color: rgba(0, 0, 0, 0.3);;
         font-size: 12px;
         line-height: 18px;
-        padding: 16px 0px 14px 27px ;
+        padding: 16px 0px 14px 67px ;
     }    
   
 }

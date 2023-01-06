@@ -14,10 +14,8 @@ function ItemDetails() {
         quantity: ""
     });
 
-    const getValuesInParent = (index, value) => {
-        console.log("old testament", index, value)
-        let data = itemNames[index]
-
+    const getValuesInParent = (index, value,quantity) => {
+        console.log("old testament", index, value , quantity)
     }
 
     var itemsArr = []
