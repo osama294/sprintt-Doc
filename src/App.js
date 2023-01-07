@@ -18,6 +18,7 @@ function App() {
   const [customerDetails ,setCustomerDetails] = useState(null)
   const [customerSignature ,setCustomerSignature] = useState(null)
   const [installer,setInstaller] = useState(null)
+  const [showModal ,setshowModal] =useState(false)
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
   //   setTab(index);
@@ -25,6 +26,9 @@ function App() {
   const getItemsData = (arr,creds)=>{
     setItemCreds(creds)
     setItemDetails(arr)
+  }
+  const getModal = (x)=>{
+    setshowModal(x)
   }
   const getCustomerData = (details , image) =>{
   setCustomerDetails(details)
@@ -58,14 +62,13 @@ function App() {
        </div>
        {/* {tab == "customer" && <Customer setTab={setTab}/>} */}
        <div className={tab == "installer" ? "show" : "hide"}>
-       <InstallerDetails getInstallerData={getInstallerData}/>
+       <InstallerDetails getInstallerData={getInstallerData} getModal={getModal}/>
        </div>
        {/* {tab == "installer" && <InstallerDetails/>} */}
        </div>
     </div>
     <div>
-      <ModalData itemDetails={itemDetails} itemCreds={itemCreds} customerSignature={customerSignature} customerDetails={customerDetails}  installer={installer}/>
-    </div>
+{  showModal &&    <ModalData itemDetails={itemDetails} itemCreds={itemCreds} customerSignature={customerSignature} customerDetails={customerDetails}  installer={installer}/>}    </div>
     </div>
 
   );
