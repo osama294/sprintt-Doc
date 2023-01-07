@@ -17,9 +17,12 @@ function Customer({setTab}) {
       useEffect(() => {
         if(details.customerName !== "" && details.date !== "" && details.email !== ""){
              setActive(true)
+             
         }
       }, [details])
-      
+      const getSignature = ()=>{
+        setDisable(false)
+      }
     const handleChange = (e) => {
         setDetails({
           ...details,          
@@ -27,7 +30,10 @@ function Customer({setTab}) {
         });
       };
 
-   
+      const getStep = ()=>{
+        setActive("3")
+        setTab("installer")
+    }
   return (
     
     <>
@@ -36,7 +42,7 @@ function Customer({setTab}) {
      <Input bname="Email" name="email" placeholder="123@mail.com" type="text" handleChange={handleChange}/>
      <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/>
      <Signature active={active}/>
-     <Button name="Proceed Next"  disable={disable} page="customer"   func={setTab}/>
+     <Button name="Proceed Next"  disable={disable} page="customer"   func={getStep}/>
     </div>
     </>
     

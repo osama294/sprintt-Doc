@@ -3,7 +3,7 @@ import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import './Details.css'
-function ItemDetails({ setTab,itemDetails,setItemDetails }) {
+function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
     const [disable, setDisable] = useState(true)
     const [details, setDetails] = useState({
         businessName: "",
@@ -26,14 +26,11 @@ function ItemDetails({ setTab,itemDetails,setItemDetails }) {
 
     }
     // useEffect(() => {
-
-    //     if (trues == itemArr.length) {
-    //         console.log("data testament", trues)
-    //         setDisable(disable => !disable)
-    //     }
+        
     // }, [trues])
     const checkItemVal = () => {
-        let check = false
+        if(details.item !==(0 || NaN || "") && details.businessName !== "")
+     {   let check = false
         console.log("halsey", itemArr.length, trues)
         itemArr.forEach((item) => {
             if (item.item == "") { 
@@ -42,17 +39,7 @@ function ItemDetails({ setTab,itemDetails,setItemDetails }) {
                 check= false
              }
         } )
-        setDisable(check)
-       
-        // if(itemArr.length  == trues){
-        //     setDisable(false)
-        // }
-        // if(itemArr.length != trues){
-        //      setTrues(prev => prev + 1)
-        // }if(itemArr.length == trues){
-        //     setDisable(prev =>  !prev)
-        // }
-
+        setDisable(check)}
     }
     const updateCount = (count) => {
         return setInitialCount(prev => prev = parseInt(count))
@@ -70,29 +57,14 @@ function ItemDetails({ setTab,itemDetails,setItemDetails }) {
             console.log("initial render")
         }
     }
-
     let d = []
     useEffect(() => {
-
-        // if (initialCount != 0) {
         for (var i = 1; i <= details.itemCount; i++) {
             d = [...d, temp]
         }
         setItemArr(d)
         setItemDetails(d)
         console.log("older testament", d)
-        // }
-        // if (itemArr.length !== 0) {
-        //   console.log("sunflower",itemArr.length)
-        //     itemArr.forEach(item => {
-
-        //         if(item.item == !""){
-        //            checkItemVal()
-        //            console.log("sunflower",trues)
-        //         }
-        //     }
-        //     )
-        // }
     }, [details])
 
     useEffect(() => {
@@ -100,18 +72,16 @@ function ItemDetails({ setTab,itemDetails,setItemDetails }) {
             checkItemCount()
         }
     }, [details.itemCount])
-
-
     const handleChange = (e) => {
-        // checkItemCount()
         setDetails({
             ...details,
             [e.target.name]: e.target.value,
         });
-
     };
-
-
+const getStep = ()=>{
+    setActive("2")
+    setTab("customer")
+}
     return (
 
         <>
@@ -125,7 +95,7 @@ function ItemDetails({ setTab,itemDetails,setItemDetails }) {
                         })
                     }
                 </div>
-                <Button name="Proceed Next" disable={disable} page="customer" func={setTab} />
+                <Button name="Proceed Next" disable={disable}  func={getStep} />
             </div>
         </>
 

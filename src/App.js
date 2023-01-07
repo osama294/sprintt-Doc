@@ -10,6 +10,9 @@ import Customer from './Pages/Customer';
 import InstallerDetails from './Pages/InstallerDetails';
 function App() {
   const [tab ,setTab] = useState("details")
+  const [active ,setActive]= useState("1")
+
+  // const [active ,setActive]= useState(true)
   const [itemDetails ,setItemDetails] = useState([])
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
@@ -30,9 +33,9 @@ function App() {
       </div>
        
        <div className='lower'>
-        <Tab setTab={setTab} tab={tab} />
+        <Tab setTab={setTab} tab={tab}  actives={active}/>
         <div className={tab == "details" ? "show" : "hide"}>
-        <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>
+        <ItemDetails setActive={setActive} setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>
         </div>
        {/* {tab == "details" &&  <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>} */}
        <div className={tab == "customer" ? "show" : "hide"}>

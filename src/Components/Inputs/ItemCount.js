@@ -32,7 +32,7 @@ useEffect(() => {
         <div className='input-row'>
             <div className='input-item'>
                 <p className='field-name'>Select Item</p>
-                <input placeholder="Select drop down" type="" className="item" defaultValue={itemVal} readOnly={true} name={name} onClick={() => { setShow(true); console.log("bsdk", indi) }} />
+                <input placeholder="Select drop down" type="" className="item" defaultValue={itemVal} readOnly={true} name={name} onClick={() => { setShow(true);}} />
             </div>
             <div className='input-quantity'>
                 <p className='field-name'>Quantity</p>
