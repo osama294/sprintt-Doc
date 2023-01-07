@@ -7,6 +7,8 @@ import './Cutomer.css'
 function Customer({setTab}) {
   const [disable, setDisable] = useState(true)
   const [active , setActive] = useState(false)
+  const [imageURL, setImageURL] = useState(null)
+
     const [details, setDetails] = useState({
         customerName: "",
         date: "",
@@ -17,7 +19,9 @@ function Customer({setTab}) {
       useEffect(() => {
         if(details.customerName !== "" && details.date !== "" && details.email !== ""){
              setActive(true)
-             
+        }
+        if(imageURL !== ""){
+          setDisable(false)
         }
       }, [details])
       const getSignature = ()=>{
@@ -29,6 +33,9 @@ function Customer({setTab}) {
           [e.target.name]: e.target.value,
         });
       };
+   const    getSignatureValue = (signature)=>{
+setImageURL(signature)
+   } 
 
       const getStep = ()=>{
         setActive("3")
@@ -41,7 +48,7 @@ function Customer({setTab}) {
      <Input bname="Customer Name" name="customerName" placeholder="Steven Strange" type="text" handleChange={handleChange}/>
      <Input bname="Email" name="email" placeholder="123@mail.com" type="text" handleChange={handleChange}/>
      <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/>
-     <Signature active={active}/>
+     <Signature active={active} setImageURL={getSignatureValue} imageURL={imageURL}/>
      <Button name="Proceed Next"  disable={disable} page="customer"   func={getStep}/>
     </div>
     </>

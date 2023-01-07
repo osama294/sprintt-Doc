@@ -1,12 +1,13 @@
 import React,{useState,useRef} from 'react'
 import  SignatureCanvas from 'react-signature-canvas';
+import Sbutton from '../Button/Sbutton';
 import './Signature.css'
-function Signature({active,setActive}) {
+function Signature({active,setActive,imageURL ,setImageURL}) {
   const sigCanvas = useRef()
-  const [imageURL, setImageURL] = useState(null)
   const create = () => {
     const URL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png')
     setImageURL(URL)
+    console.log("image",imageURL)
   }
   const download = () => {
     const dlink = document.createElement("a")
@@ -22,9 +23,11 @@ function Signature({active,setActive}) {
          <span className='span' onClick={() => sigCanvas.current.clear()}>Clear Signature</span>
       </div>
     
-  {active ?  <SignatureCanvas penColor="black"
+  {active ?  <div className='sig-box'><SignatureCanvas penColor="black"
                 canvasProps={{className: 'sigCanvas'}}
-                ref={sigCanvas} /> : <div className='sigCan'></div>}
+                ref={sigCanvas} />
+                 <Sbutton name="Confirm" type="confirm" func={create} onClick={()=>{console.log("close")}}/>
+                </div> : <div className='sigCan'></div>}
     </div>
     </>
   )

@@ -26,7 +26,7 @@ function InstallerDetails() {
     
     <>
     <div className='installer-details'>
-     <Input bname="Customer Name" name="customerName" placeholder="Steven Strange" type="text" handleChange={handleChange}/>
+     <Input bname="Installer Name" name="customerName" placeholder="Steven Strange" type="text" handleChange={handleChange}/>
      {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/> */}
      <div className='input-message'>
        <p className='field-message'>Add Notes</p>

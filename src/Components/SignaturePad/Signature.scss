@@ -40,4 +40,14 @@
     border-radius: 8px;
     border: 1px solid black;
 }
+.sig-box{
+    align-items: center;
+    justify-content: center;
+display: flex;
+flex-direction: column;
+gap: 10px;
+.suvbtn{
+    width: 335px  !important;
+}
+}
 }

@@ -38,4 +38,14 @@
   height: 240px;
   border-radius: 8px;
   border: 1px solid black;
+}
+.sigan .sig-box {
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sigan .sig-box .suvbtn {
+  width: 335px !important;
 }/*# sourceMappingURL=Signature.css.map */
