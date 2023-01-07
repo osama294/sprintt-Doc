@@ -4,7 +4,7 @@ import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import Signature from '../Components/SignaturePad/Signature';
 import './Cutomer.css'
-function Customer({ setTab }) {
+function Customer({ setTab, getData }) {
   const [disabled, setDisabled] = useState(true)
   const [active, setActive] = useState(false)
   const [imageURL, setImageURL] = useState(null)
@@ -55,6 +55,11 @@ function Customer({ setTab }) {
   }
 
   const getStep = () => {
+    // setActive("3")
+    setTab("installer")
+  }
+  const getStep = () => {
+    getData(details, imageURL)
     // setActive("3")
     setTab("installer")
   }
