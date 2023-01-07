@@ -25,11 +25,27 @@ function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
         // if (t[index - 1].item !== '') { setTrues(trues + 1) }
 
     }
-    // useEffect(() => {
-        
-    // }, [trues])
+    const disablebtn = ()=>{
+     setDisable(true)
+    }
+   const checkInputs =() => {
+        console.log("bsdk")
+        if(details.item ==(0 || NaN || "") || details.businessName == ""){
+                    setDisable(true)
+        }
+        if( details.businessName !== "" && details.item ==(0 || NaN || "") ){
+            setDisable(false)
+        }
+      }
+    
+    useEffect(() => {
+checkInputs()
+    }, [details])
+    
     const checkItemVal = () => {
+      
         if(details.item !==(0 || NaN || "") && details.businessName !== "")
+      
      {   let check = false
         console.log("halsey", itemArr.length, trues)
         itemArr.forEach((item) => {
@@ -65,6 +81,7 @@ function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
         setItemArr(d)
         setItemDetails(d)
         console.log("older testament", d)
+    
     }, [details])
 
     useEffect(() => {
@@ -77,6 +94,7 @@ function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
             ...details,
             [e.target.name]: e.target.value,
         });
+        if(details.businessName !== ""){setDisable(false)}
     };
 const getStep = ()=>{
     setActive("2")

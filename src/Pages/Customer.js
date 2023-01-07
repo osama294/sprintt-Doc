@@ -5,28 +5,42 @@ import ItemCount from '../Components/Inputs/ItemCount';
 import Signature from '../Components/SignaturePad/Signature';
 import './Cutomer.css'
 function Customer({setTab}) {
-  const [disable, setDisable] = useState(true)
+  const [disabled, setDisabled] = useState(true)
   const [active , setActive] = useState(false)
   const [imageURL, setImageURL] = useState(null)
-
+ const disable = ()=>{
+  setDisabled(false)
+ }
+ const enable = ()=>{
+  setDisabled(true)
+ }
     const [details, setDetails] = useState({
         customerName: "",
         date: "",
         email:"",
-        signature:""
       });
    var itemsArr = []
       useEffect(() => {
+        // disable()
+        if(imageURL !== ("" || null ||NaN)){
+          setDisabled(false)
+          enable()
+        }
         if(details.customerName !== "" && details.date !== "" && details.email !== ""){
              setActive(true)
         }
-        if(imageURL !== ""){
-          setDisable(false)
-        }
+      
       }, [details])
-      const getSignature = ()=>{
-        setDisable(false)
-      }
+      useEffect(() => {
+        if(imageURL !== ("" || null ||NaN)){
+          setDisabled(false)
+          enable()
+        }
+      }, [imageURL])
+      
+      // const getSignature = ()=>{
+      //   setDisabled(false)
+      // }
     const handleChange = (e) => {
         setDetails({
           ...details,          
@@ -35,6 +49,7 @@ function Customer({setTab}) {
       };
    const    getSignatureValue = (signature)=>{
 setImageURL(signature)
+disable()
    } 
 
       const getStep = ()=>{
@@ -49,7 +64,7 @@ setImageURL(signature)
      <Input bname="Email" name="email" placeholder="123@mail.com" type="text" handleChange={handleChange}/>
      <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/>
      <Signature active={active} setImageURL={getSignatureValue} imageURL={imageURL}/>
-     <Button name="Proceed Next"  disable={disable} page="customer"   func={getStep}/>
+     <Button name="Proceed Next"  disable={disabled} page="customer"   func={getStep}/>
     </div>
     </>
     

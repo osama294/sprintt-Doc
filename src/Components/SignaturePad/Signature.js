@@ -19,10 +19,13 @@ function Signature({active,setActive,imageURL ,setImageURL}) {
     <>
     <div className='sigan'>
       <div className='sigan-row'>
+        <div>
          <p className='field-name'>Add Signature Here</p>
+      
+        </div>
          <span className='span' onClick={() => sigCanvas.current.clear()}>Clear Signature</span>
       </div>
-    
+      <p className='field-name'>Please fill the fields above to enable signature*</p>
   {active ?  <div className='sig-box'><SignatureCanvas penColor="black"
                 canvasProps={{className: 'sigCanvas'}}
                 ref={sigCanvas} />
