@@ -20,7 +20,7 @@ function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
     const getValuesInParent = (index, value, quantity) => {
         let t = itemArr
         itemArr[index - 1] = { item: value, count: quantity }
-        setItemDetails(t)
+        setItemDetails(t,details)
         console.log("old testament234324234234324", t,itemArr); console.log("asdewf", itemDetails)
         
         checkItemVal()
@@ -49,7 +49,7 @@ checkInputs()
       
      {   let check = false
         console.log("halsey", itemArr.length, trues)
-        itemArr.forEach((item) => {
+        itemDetails.forEach((item) => {
             if (item.item == "") { 
                 check = true
              }else{
