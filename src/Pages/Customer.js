@@ -53,7 +53,7 @@ disable()
    } 
 
       const getStep = ()=>{
-        setActive("3")
+        // setActive("3")
         setTab("installer")
     }
   return (

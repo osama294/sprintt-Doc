@@ -29,7 +29,7 @@ function Signature({active,setActive,imageURL ,setImageURL}) {
   {active ?  <div className='sig-box'><SignatureCanvas penColor="black"
                 canvasProps={{className: 'sigCanvas'}}
                 ref={sigCanvas} />
-                 <Sbutton name="Confirm" type="confirm" func={create} onClick={()=>{console.log("close")}}/>
+                 <Sbutton name="Confirm" type="confirm" func={create} />
                 </div> : <div className='sigCan'></div>}
     </div>
     </>
