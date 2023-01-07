@@ -10,13 +10,15 @@ import Customer from './Pages/Customer';
 import InstallerDetails from './Pages/InstallerDetails';
 function App() {
   const [tab ,setTab] = useState("details")
+  const [itemDetails ,setItemDetails] = useState([])
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
   //   setTab(index);
   // };
   useEffect(() => {
    console.log("active tab", tab)
-  }, [tab])
+   console.log("otem",itemDetails)
+  }, [itemDetails])
   
   console.log("const",tab)
   return (
@@ -29,9 +31,18 @@ function App() {
        
        <div className='lower'>
         <Tab setTab={setTab} tab={tab} />
-       {tab == "details" &&  <ItemDetails setTab={setTab}/>}
-       {tab == "customer" && <Customer setTab={setTab}/>}
-       {tab == "installer" && <InstallerDetails/>}
+        <div className={tab == "details" ? "show" : "hide"}>
+        <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>
+        </div>
+       {/* {tab == "details" &&  <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>} */}
+       <div className={tab == "customer" ? "show" : "hide"}>
+       <Customer setTab={setTab}/>
+       </div>
+       {/* {tab == "customer" && <Customer setTab={setTab}/>} */}
+       <div className={tab == "installer" ? "show" : "hide"}>
+       <InstallerDetails/>
+       </div>
+       {/* {tab == "installer" && <InstallerDetails/>} */}
        </div>
     </div>
     </div>

@@ -3,7 +3,7 @@ import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import './Details.css'
-function ItemDetails({ setTab }) {
+function ItemDetails({ setTab,itemDetails,setItemDetails }) {
     const [disable, setDisable] = useState(true)
     const [details, setDetails] = useState({
         businessName: "",
@@ -17,7 +17,8 @@ function ItemDetails({ setTab }) {
     const [itemArr, setItemArr] = useState([])
 
     const getValuesInParent = (index, value, quantity) => {
-        let t = itemArr
+        // let t = itemArr
+        let t = itemDetails
         t[index - 1] = { item: value, count: quantity }
         console.log("old testament", t); console.log("asdewf", trues)
         checkItemVal()
@@ -78,6 +79,7 @@ function ItemDetails({ setTab }) {
             d = [...d, temp]
         }
         setItemArr(d)
+        setItemDetails(d)
         console.log("older testament", d)
         // }
         // if (itemArr.length !== 0) {

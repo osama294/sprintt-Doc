@@ -64,3 +64,9 @@
   background:white ;
 
 }
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
