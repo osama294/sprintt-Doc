@@ -10,11 +10,12 @@ function Customer({setTab}) {
     const [details, setDetails] = useState({
         customerName: "",
         date: "",
+        email:"",
         signature:""
       });
    var itemsArr = []
       useEffect(() => {
-        if(details.customerName !== "" && details.date !== ""){
+        if(details.customerName !== "" && details.date !== "" && details.email !== ""){
              setActive(true)
         }
       }, [details])
@@ -32,6 +33,7 @@ function Customer({setTab}) {
     <>
     <div className='details'>
      <Input bname="Customer Name" name="customerName" placeholder="Steven Strange" type="text" handleChange={handleChange}/>
+     <Input bname="Email" name="email" placeholder="123@mail.com" type="text" handleChange={handleChange}/>
      <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/>
      <Signature active={active}/>
      <Button name="Proceed Next"  disable={disable} page="customer"   func={setTab}/>
