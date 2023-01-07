@@ -8,16 +8,19 @@ import ItemDetails from './Pages/ItemDetails';
 import logos from './images/logos.png'
 import Customer from './Pages/Customer';
 import InstallerDetails from './Pages/InstallerDetails';
+import ModalData from './Pages/ModalData';
 function App() {
   const [tab ,setTab] = useState("details")
   const [active ,setActive]= useState("1")
-
   // const [active ,setActive]= useState(true)
   const [itemDetails ,setItemDetails] = useState([])
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
   //   setTab(index);
   // };
+  const getItemsData = (arr)=>{
+    setItemDetails(arr)
+  }
   useEffect(() => {
    console.log("active tab", tab)
    console.log("otem",itemDetails)
@@ -35,7 +38,7 @@ function App() {
        <div className='lower'>
         <Tab setTab={setTab} tab={tab}  actives={active}/>
         <div className={tab == "details" ? "show" : "hide"}>
-        <ItemDetails setActive={setActive} setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>
+        <ItemDetails setActive={setActive} setTab={setTab} itemDetails={itemDetails} setItemDetails={getItemsData}/>
         </div>
        {/* {tab == "details" &&  <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>} */}
        <div className={tab == "customer" ? "show" : "hide"}>
@@ -48,7 +51,11 @@ function App() {
        {/* {tab == "installer" && <InstallerDetails/>} */}
        </div>
     </div>
+    <div>
+      <ModalData itemDetails={itemDetails}/>
     </div>
+    </div>
+
   );
 }
 

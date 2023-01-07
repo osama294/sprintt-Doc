@@ -3,6 +3,8 @@ import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import './Details.css'
+var temp;
+temp = { item: "", count: "" }
 function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
     const [disable, setDisable] = useState(true)
     const [details, setDetails] = useState({
@@ -12,18 +14,17 @@ function ItemDetails({ setTab,itemDetails,setItemDetails ,setActive}) {
     });
     const [initialCount, setInitialCount] = useState(0)
     const [trues, setTrues] = useState(0)
-    var temp;
-    temp = { item: "", count: "" }
+
     const [itemArr, setItemArr] = useState([])
 
     const getValuesInParent = (index, value, quantity) => {
-        // let t = itemArr
-        let t = itemDetails
-        t[index - 1] = { item: value, count: quantity }
-        console.log("old testament", t); console.log("asdewf", trues)
+        let t = itemArr
+        itemArr[index - 1] = { item: value, count: quantity }
+        setItemDetails(t)
+        console.log("old testament234324234234324", t,itemArr); console.log("asdewf", itemDetails)
+        
         checkItemVal()
         // if (t[index - 1].item !== '') { setTrues(trues + 1) }
-
     }
     const disablebtn = ()=>{
      setDisable(true)
@@ -75,12 +76,16 @@ checkInputs()
     }
     let d = []
     useEffect(() => {
-        for (var i = 1; i <= details.itemCount; i++) {
+        console.log("ap dhillon")
+        
+        for (var i = 1; i <= (itemArr.length > 0 ? (initialCount-itemArr.length) : initialCount); i++) {
             d = [...d, temp]
         }
-        setItemArr(d)
-        setItemDetails(d)
-        console.log("older testament", d)
+        setItemArr(d)  
+        setItemDetails(itemArr)
+// window.alert(initialCount  , itemArr.length,itemDetails)
+      
+        console.log("older testament", initialCount ,details.length ,itemArr.length )
     
     }, [details])
 
@@ -97,7 +102,7 @@ checkInputs()
         if(details.businessName !== ""){setDisable(false)}
     };
 const getStep = ()=>{
-    setActive("2")
+    // setActive("2")
     setTab("customer")
 }
     return (

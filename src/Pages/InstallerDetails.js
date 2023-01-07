@@ -3,16 +3,17 @@ import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
 import './InstallerDetails.css'
 function InstallerDetails() {
- 
+  const [disable, setDisable] = useState(true)
     const [details, setDetails] = useState({
-        customerName: "",
-        date: "",
-        signature:""
+      installerName: "",
+        notes: "",
       });
    var itemsArr = []
       useEffect(() => {
-   
-      }, [])
+     if(details.installerName !=="" || details.notes !==""){
+      setDisable(false)
+     }
+      }, [details])
       
     const handleChange = (e) => {
         setDetails({
@@ -21,7 +22,10 @@ function InstallerDetails() {
         });
       };
 
-   
+      const getStep = ()=>{
+        // setActive("2")
+        window.alert("hello your form submited")
+    }
   return (
     
     <>
@@ -32,7 +36,7 @@ function InstallerDetails() {
        <p className='field-message'>Add Notes</p>
        <textarea placeholder="Add comments here.."  type="text" className="message" name="notes"  onChange={handleChange}/>
     </div>
-     <Button name="Submit"/>
+    <Button name="Proceed Next" disable={disable}  func={getStep} />
     </div>
     </>
     
