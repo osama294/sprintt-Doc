@@ -1,9 +1,9 @@
 import React from 'react'
 import './Button.css'
-function Button({name,disable}) {
+function Button({name,disable,func,page}) {
   return (
     <>
-    <button className='btn' disabled={disable}>{name}</button>
+ {disable ?  <button className='g-btn' disabled={disable}>{name}</button>:<button className='btn' onClick={()=>{ func(page)} }>  {name}</button> }
     </>
   )
 }

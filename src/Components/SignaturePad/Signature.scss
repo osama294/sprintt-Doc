@@ -25,7 +25,7 @@
     text-decoration-line: underline;
     color: rgba(0, 0, 0, 0.5);
 }
-    // border: 1px  black;
+    border: 1px  black;
 .sigCanvas{
     width: 100%;
     height: 240px;
@@ -33,4 +33,11 @@
     // max-height: 200px;
     border-radius: 8px;
     border: 1px solid black;
-}}
+}
+.sigCan{
+    width: 355px;
+    height: 240px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+}

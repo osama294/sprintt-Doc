@@ -1,7 +1,7 @@
 import React,{useState,useRef} from 'react'
 import  SignatureCanvas from 'react-signature-canvas';
 import './Signature.css'
-function Signature() {
+function Signature({active,setActive}) {
   const sigCanvas = useRef()
   const [imageURL, setImageURL] = useState(null)
   const create = () => {
@@ -22,9 +22,9 @@ function Signature() {
          <span className='span' onClick={() => sigCanvas.current.clear()}>Clear Signature</span>
       </div>
     
-    <SignatureCanvas penColor="black"
+  {active ?  <SignatureCanvas penColor="black"
                 canvasProps={{className: 'sigCanvas'}}
-                ref={sigCanvas} />
+                ref={sigCanvas} /> : <div className='sigCan'></div>}
     </div>
     </>
   )

@@ -1,5 +1,6 @@
 .sigan {
   max-width: 365px;
+  border: 1px black;
 }
 .sigan .sigan-row {
   display: flex;
@@ -28,6 +29,12 @@
 }
 .sigan .sigCanvas {
   width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  border: 1px solid black;
+}
+.sigan .sigCan {
+  width: 355px;
   height: 240px;
   border-radius: 8px;
   border: 1px solid black;

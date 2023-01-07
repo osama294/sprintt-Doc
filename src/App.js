@@ -29,8 +29,8 @@ function App() {
        
        <div className='lower'>
         <Tab setTab={setTab} tab={tab} />
-       {tab == "details" &&  <ItemDetails/>}
-       {tab == "customer" && <Customer/>}
+       {tab == "details" &&  <ItemDetails setTab={setTab}/>}
+       {tab == "customer" && <Customer setTab={setTab}/>}
        {tab == "installer" && <InstallerDetails/>}
        </div>
     </div>

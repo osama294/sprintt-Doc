@@ -34,7 +34,7 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
                                         if (item.Name.toString().toLowerCase().includes(search.toString().toLowerCase()) || search === '') {
 
                                             return (<> {hover == item.Name ?  <div key={index} onClick={(e)=>{setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item-hover">{item.Name}</div>
-                                                : <div key={index}  onMouseOver={() => { setHover(item.Name) }} className="item">{item.Name}</div>}</>)
+                                                : <div key={index}  onMouseOver={() => { setHover(item.Name) }} onClick={(e)=>{setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item">{item.Name}</div>}</>)
                                         }
                                     })
 

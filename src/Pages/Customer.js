@@ -4,8 +4,9 @@ import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import Signature from '../Components/SignaturePad/Signature';
 import './Cutomer.css'
-function Customer() {
- 
+function Customer({setTab}) {
+  const [disable, setDisable] = useState(true)
+  const [active , setActive] = useState(false)
     const [details, setDetails] = useState({
         customerName: "",
         date: "",
@@ -13,8 +14,10 @@ function Customer() {
       });
    var itemsArr = []
       useEffect(() => {
-   
-      }, [])
+        if(details.customerName !== "" && details.date !== ""){
+             setActive(true)
+        }
+      }, [details])
       
     const handleChange = (e) => {
         setDetails({
@@ -30,8 +33,8 @@ function Customer() {
     <div className='details'>
      <Input bname="Customer Name" name="customerName" placeholder="Steven Strange" type="text" handleChange={handleChange}/>
      <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/>
-     <Signature/>
-     <Button name="Proceed Next"/>
+     <Signature active={active}/>
+     <Button name="Proceed Next"  disable={disable} page="customer"   func={setTab}/>
     </div>
     </>
     
