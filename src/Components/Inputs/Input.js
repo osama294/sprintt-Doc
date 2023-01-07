@@ -5,7 +5,7 @@ function Input({bname ,name, icon ,placeholder ,type ,handleChange ,val}) {
     <>
    <div className='input-container'>
        <p className='field-name'>{bname}</p>
-       <input placeholder={placeholder} value={val} type="text" className="input" name={name}  onChange={handleChange}/>
+       <input placeholder={placeholder} value={val} type={type} className="input" name={name}  onChange={handleChange}/>
     </div>
     </>
   )

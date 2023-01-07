@@ -10,10 +10,10 @@ import Customer from './Pages/Customer';
 import InstallerDetails from './Pages/InstallerDetails';
 function App() {
   const [tab ,setTab] = useState("details")
-  const sendDataToParent = (index) => { // the callback. Use a better name
-    console.log("onder",index);
-    setTab(index);
-  };
+  // const sendDataToParent = (index) => { // the callback. Use a better name
+  //   console.log("onder",index);
+  //   setTab(index);
+  // };
   useEffect(() => {
    console.log("active tab", tab)
   }, [tab])
