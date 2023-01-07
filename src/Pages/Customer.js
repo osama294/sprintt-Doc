@@ -42,10 +42,12 @@ function Customer({setTab}) {
       //   setDisabled(false)
       // }
     const handleChange = (e) => {
+      e.preventDefault()
         setDetails({
           ...details,          
           [e.target.name]: e.target.value,
         });
+        e.preventDefault()
       };
    const    getSignatureValue = (signature)=>{
 setImageURL(signature)
