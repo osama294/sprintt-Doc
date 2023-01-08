@@ -18,11 +18,20 @@ function App() {
   const [customerDetails ,setCustomerDetails] = useState(null)
   const [customerSignature ,setCustomerSignature] = useState(null)
   const [installer,setInstaller] = useState(null)
+  const [insta,setInsta] = useState(null)
+
   const [showModal ,setshowModal] =useState(false)
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
   //   setTab(index);
   // };
+  useEffect(() => {
+   gettemArr()
+  }, [insta])
+  
+  const gettemArr = (arrr)=>{
+    setInsta(arrr)
+  }
   const getItemsData = (arr,creds)=>{
     setItemCreds(creds)
     setItemDetails(arr)
@@ -54,7 +63,7 @@ function App() {
        <div className='lower'>
         <Tab setTab={setTab} tab={tab}  actives={active}/>
         <div className={tab == "details" ? "show" : "hide"}>
-        <ItemDetails setActive={setActive} setTab={setTab} itemDetails={itemDetails} setItemDetails={getItemsData}/>
+        <ItemDetails gettemArr={gettemArr} setActive={setActive} setTab={setTab} itemDetails={itemDetails} setItemDetails={getItemsData}/>
         </div>
        {/* {tab == "details" &&  <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>} */}
        <div className={tab == "customer" ? "show" : "hide"}>
