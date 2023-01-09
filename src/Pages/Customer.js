@@ -11,7 +11,7 @@ function Customer({ setTab, getData }) {
   const [date ,setDate] =useState(null)
   const [imageURL, setImageURL] = useState(null)
   var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-//  const datereg =  /^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$;
+ const datereg =  {regex:"/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"};
   const disable = () => {
     setDisabled(false)
   }
@@ -26,24 +26,25 @@ function Customer({ setTab, getData }) {
   var itemsArr = []
   useEffect(() => {
     // disable()
-    if (imageURL !== ("" || null || NaN)) {
-      setDisabled(false)
-      // enable()
-    }
-    if (details.customerName !== "" && date !== "" && details.email !== "") {
+    // if (imageURL !== ("" || null || NaN)) {
+    //   setDisabled(false)
+    //   // enable()
+    // }
+    if (details.customerName !== "" && date !== null && details.email !== "") {
+      console.log("accepted")
          if(details.email.match(validRegex) ){
-          setActive(true)
-         } else if(date.match(` ^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$`)){
           setActive(true)
          }
          else{
           setActive(false)
          }
-    }else{
-          setActive(false)
     }
+    // else
+    // {
+    //       setActive(false)
+    // }
 
-  }, [details])
+  }, [details,date])
   useEffect(() => {
     if (imageURL !== ("" || null || NaN)) {
       setDisabled(false)
@@ -85,7 +86,7 @@ function Customer({ setTab, getData }) {
         {/* <input placeholder={placeholder} min={min} value={val} type={type} className="input" name={name} onChange={handleChange} /> */}
       </div>
         {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text" handleChange={handleChange} /> */}
-        <Signature active={active} setImageURL={getSignatureValue} imageURL={imageURL} />
+        <Signature active={active} enable={disable} setImageURL={getSignatureValue} imageURL={imageURL} />
         <Button name="Proceed Next" disable={disabled} page="customer" func={getStep} />
       </div>
     </>
