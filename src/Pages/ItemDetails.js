@@ -41,11 +41,15 @@ let t = itemArr
         //     setDisable(false)
         // }
         if( initialCount == tempArr.length){
-              if(details.itemCount !== (0 || '')  ){
+            if(initialCount == 0 &&  tempArr.length == 0) {
+                setDisable(true)
+                return
+            }
+             else{ if(details.itemCount !== (0 || '')  ){
                     if(details.businessName !== ""){
                         setDisable(false)
                     }
-              }
+              }}
         }
         else{
             setDisable(true)
