@@ -27,7 +27,7 @@ let t = itemArr
         console.log("old testament234324234234324", t, tempArr);
          console.log("asdewf", itemArr)
     
-        checkItemVal()
+        // checkItemVal()
         // if (t[index - 1].item !== '') { setTrues(trues + 1) }
     }
     const disablebtn = () => {
@@ -70,21 +70,21 @@ let t = itemArr
         // getValuesInParent()
     }, [details,itemArr])
 
-    const checkItemVal = () => {
+    // const checkItemVal = () => {
 
-        if (details.item !== (0 || NaN || "") && details.businessName !== "") {
-            let check = false
-            console.log("halsey", itemArr.length, trues)
-            itemDetails.forEach((item) => {
-                if (item.item == "") {
-                    check = true
-                } else {
-                    check = false
-                }
-            })
-            setDisable(check)
-        }
-    }
+    //     if (details.item !== (0 || NaN || "") && details.businessName !== "") {
+    //         let check = false
+    //         console.log("halsey", itemArr.length, trues)
+    //         itemDetails.forEach((item) => {
+    //             if (item.item == "") {
+    //                 check = true
+    //             } else {
+    //                 check = false
+    //             }
+    //         })
+    //         setDisable(check)
+    //     }
+    // }
     const updateCount = (count) => {
         return setInitialCount(prev => prev = parseInt(count))
     }
