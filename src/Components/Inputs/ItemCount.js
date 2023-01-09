@@ -18,11 +18,11 @@ useEffect(() => {
     onSelect(indi, itemVal, quantity );
     
     getAddAr()
-}, [itemVal])
+}, [itemVal,   quantity])
 
     const addItem = () => {
         console.log("clicked");
-        if(active == true)  {      setQuantity(quantity + 1);}
+           setQuantity(quantity + 1);
         // onSelect(indi, itemVal, quantity + 1);
     }
 

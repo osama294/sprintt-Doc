@@ -13,7 +13,7 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
     const [data, setData] = useState(datas)
     const handleChange = (e) => {
         console.log("testament", e.target.value)
-        setSearch(e.target.value);
+        setSearch(e.target.value.replace(/  +/g, ' '));
         
     };
     const mouseOver = (event, name) => {

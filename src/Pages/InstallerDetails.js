@@ -10,10 +10,10 @@ function InstallerDetails({getInstallerData,getModal}) {
       });
    var itemsArr = []
       useEffect(() => {
-     if(details.installerName !=="" && details.notes !==""){
+     if(details.installerName !=="" ){
       setDisable(false)
      }
-     if(details.installerName =="" || details.notes ==""){
+     if(details.installerName =="" ){
       setDisable(true)
      }
 

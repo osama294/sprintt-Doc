@@ -45,26 +45,29 @@ let t = itemArr
         //     setDisable(true)
         // }
         // else 
-          if( initialCount == itemArr.length){
-            if(initialCount == 0 &&  itemArr.length == 0) {
-                setDisable(true)
-                return
-            }
-             else{ if(details.itemCount !== (0 || '')  ){
-                    if(details.businessName !== ""){
+        //   if( initialCount == itemArr.length){
+            // if(initialCount == 0 &&  itemArr.length == 0) {
+            //     setDisable(true)
+            //     return
+            // }
+            //  else
+              if(details.itemCount !== 0  && details.businessName !== ""){
+                    // if(){
                         setDisable(false)
-                    }else{
-                        setDisable(true)
                     }
-              }}
-        }
-        else{
-            setDisable(true)
-        }
+                    else{
+                        setDisable(true)
+                    // }
+              }
+        // }
+        // else{
+        //     setDisable(true)
+        // }
     }
 
     useEffect(() => {
         checkInputs()
+        // getValuesInParent()
     }, [details,itemArr])
 
     const checkItemVal = () => {

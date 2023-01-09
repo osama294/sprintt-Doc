@@ -38,7 +38,7 @@ function ModalData({date, itemDetails, itemCreds, customerDetails, customerSigna
                 <div className='pdf-box'>
                     <div className='top'><h5>Items Details</h5></div>
                     <div className='bottom'>{itemDetails?.map((item, index) => {
-                        return <div className='item-row' key={index}> <p className='p'>{item?.count}</p><p className='ps'>{item?.item}</p></div>
+                  if(item.item !== "")     { return  <div className='item-row' key={index}> <p className='p'>{item?.count}</p><p className='ps'>{item?.item}</p></div>}
                     })}
 
                     </div>
