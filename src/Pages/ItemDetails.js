@@ -41,7 +41,11 @@ let t = itemArr
         // if (details.businessName !== "" && details.itemCount !== (0 || NaN || "") && tempArr.length == initialCount) {
         //     setDisable(false)
         // }
-        if( initialCount == itemArr.length){
+        // if(details.businessName == ""){
+        //     setDisable(true)
+        // }
+        // else 
+          if( initialCount == itemArr.length){
             if(initialCount == 0 &&  itemArr.length == 0) {
                 setDisable(true)
                 return
@@ -49,6 +53,8 @@ let t = itemArr
              else{ if(details.itemCount !== (0 || '')  ){
                     if(details.businessName !== ""){
                         setDisable(false)
+                    }else{
+                        setDisable(true)
                     }
               }}
         }
@@ -59,7 +65,7 @@ let t = itemArr
 
     useEffect(() => {
         checkInputs()
-    }, [details,tempArr])
+    }, [details,itemArr])
 
     const checkItemVal = () => {
 
@@ -139,7 +145,7 @@ const getAddAr = ()=>{
         <>
             <div className='details'>
                 <Input bname="Business Name" name="businessName" placeholder="Example: XYZ Co." type="text" handleChange={handleChange} />
-                <Input bname="Number of items" name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
+                <Input bname="Number of items"min={0}  name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
                 <div className='count-container'>
                     {
                         Array.from({ length: initialCount }).map((name, index) => {
