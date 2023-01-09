@@ -27,8 +27,9 @@ useEffect(() => {
     }
 
     const removeItem = () => {
-
-    if(active == true)  {  setQuantity(quantity - 1);}
+if(quantity <= 1){
+    return
+}else{ setQuantity(quantity - 1)}
         // onSelect(indi, itemVal, quantity - 1)
     }
 
@@ -44,7 +45,7 @@ useEffect(() => {
                 <p className='field-name'>Quantity</p>
                 <p className='plus' onClick={() => { addItem();onSelect(indi, itemVal, quantity) }}><AiFillPlusSquare /></p>
                 <p className='minus' onClick={() => { removeItem(); onSelect(indi, itemVal, quantity) }} ><AiFillMinusSquare /></p>
-                <input placeholder={placeholder} type="number" className="quantity" onChange={(e) => { setQuantity(e.target.value); onSelect(indi, itemVal, quantity) }} value={quantity} name={name} />
+                <input placeholder={placeholder} min={1} type="number" className="quantity" onChange={(e) => { setQuantity(e.target.value); onSelect(indi, itemVal, quantity) }} value={quantity} name={name} />
             </div>
         
             {show  &&  <Modal key={indi} itemNo={indi} onSelect={getValue} setItemVal={setItemVal} setShow={setShow} />}
