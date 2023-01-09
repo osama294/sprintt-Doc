@@ -14,7 +14,7 @@ import InstallerDetails from './Pages/InstallerDetails';
 import ModalData from './Pages/ModalData';
 function App() {
   const [tab ,setTab] = useState("details")
-  const [active ,setActive]= useState("1")
+  // const [active ,setActive]= useState("1")
   const [itemCreds ,setItemCreds]= useState(null)
   // const [active ,setActive]= useState(true)
   const [itemDetails ,setItemDetails] = useState([])
@@ -64,9 +64,9 @@ function App() {
       </div>
        
        <div className='lower'>
-        <Tab setTab={setTab} tab={tab}  actives={active}/>
+        <Tab setTab={setTab} tab={tab} />
         <div className={tab == "details" ? "show" : "hide"}>
-        <ItemDetails gettemArr={gettemArr} setActive={setActive} setTab={setTab} itemDetails={itemDetails} setItemDetails={getItemsData}/>
+        <ItemDetails gettemArr={gettemArr}  setTab={setTab} itemDetails={itemDetails} setItemDetails={getItemsData}/>
         </div>
        {/* {tab == "details" &&  <ItemDetails setTab={setTab} itemDetails={itemDetails} setItemDetails={setItemDetails}/>} */}
        <div className={tab == "customer" ? "show" : "hide"}>

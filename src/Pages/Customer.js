@@ -30,6 +30,7 @@ function Customer({ setTab, getData }) {
     //   setDisabled(false)
     //   // enable()
     // }
+    enable()
     if (details.customerName !== "" && date !== null && details.email !== "") {
       console.log("accepted")
          if(details.email.match(validRegex) ){
@@ -46,9 +47,10 @@ function Customer({ setTab, getData }) {
 
   }, [details,date])
   useEffect(() => {
-    if (imageURL !== ("" || null || NaN)) {
+    
+    if (imageURL !==  null) {
       setDisabled(false)
-      enable()
+      disable()
     }
   }, [imageURL])
 
@@ -86,7 +88,7 @@ function Customer({ setTab, getData }) {
         {/* <input placeholder={placeholder} min={min} value={val} type={type} className="input" name={name} onChange={handleChange} /> */}
       </div>
         {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text" handleChange={handleChange} /> */}
-        <Signature active={active} enable={disable} setImageURL={getSignatureValue} imageURL={imageURL} />
+        <Signature active={active} enable={enable} setImageURL={getSignatureValue} imageURL={imageURL} />
         <Button name="Proceed Next" disable={disabled} page="customer" func={getStep} />
       </div>
     </>
