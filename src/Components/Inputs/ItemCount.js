@@ -15,6 +15,7 @@ function ItemCount({ bname, name, indi, placeholder, type, onSelect,getAddAr }) 
     }
 useEffect(() => {
     // onSelect(indi,itemVal,quantity)
+    onSelect(indi, itemVal, quantity );getAddAr()
 }, [itemVal])
 
     const addItem = () => {
@@ -47,7 +48,7 @@ useEffect(() => {
             {show  && active && <Modal key={indi} itemNo={indi} onSelect={getValue} setItemVal={setItemVal} setShow={setShow} />}
         </div>
         <div className='btn-row'>
-   {  active &&   <button onClick={()=>{onSelect(indi, itemVal, quantity );setActive(false);getAddAr()}}>add</button>}
+   {/* {  active &&   <button onClick={()=>{}}>add</button>} */}
         </div>
         </div>
       

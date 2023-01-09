@@ -1,9 +1,19 @@
 import React from 'react'
 import { useEffect } from "react"
+import JsPDF from 'jspdf';
 import Sbutton from '../Components/Button/Sbutton'
 import './ModalData.css'
 
 function ModalData({ itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
+    const generatePDF = () => {
+
+        const report = new JsPDF('portrait','pt','a4');
+        report.html(document.querySelector('#report')).then(() => {
+            console.log("randox",report)
+            report.save('report.pdf');
+            
+        });}
+
     useEffect(() => {
         console.log("formfinaldata", itemDetails, itemCreds, customerDetails, customerSignature, installer)
     }, [customerSignature, installer])
@@ -11,7 +21,7 @@ function ModalData({ itemDetails, itemCreds, customerDetails, customerSignature,
     return (
         <><div className='overlay'>
             <div className='modal'>  
-            <div className='pdf-container'>
+            <div className='pdf-container' id='report'>
                 <div className='head'><h4>Order Details</h4></div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Business Name</h5></div>
@@ -56,7 +66,7 @@ function ModalData({ itemDetails, itemCreds, customerDetails, customerSignature,
             </div>
             <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={getModal} onClick={()=>{console.log("close")}}/>
-                        <Sbutton name="Confirm" type="confirm" func={getModal} onClick={()=>{console.log("close")}}/>
+                        <Sbutton name="Confirm" type="confirm" func={generatePDF} onClick={()=>{console.log("close")}}/>
                     </div>
             </div>
         </div>

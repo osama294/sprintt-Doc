@@ -148,7 +148,7 @@ const getAddAr = ()=>{
                     }
                 </div>
                 <Button name="Proceed Next" disable={disable} func={getStep} />
-                {/* <div>
+                <div>
                     {tempArr.map(items=>{
                         return <div>{items.item } 23</div>  
 
@@ -157,7 +157,7 @@ const getAddAr = ()=>{
                       {itemArr.map(items=>{
                         return <div>{items.item }</div>  
                     })}
-                </div> */}
+                </div>
             </div>
         </>
 
