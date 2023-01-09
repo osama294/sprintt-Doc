@@ -19,9 +19,10 @@ function ItemDetails({ setTab, itemDetails, setItemDetails, setActive }) {
 let t = itemArr
     const getValuesInParent = (index, value, quantity) => {
           
-        // itemArr[index - 1] = { item: value, count: quantity }
+        
         if(value !== '')
         setTempArr([...tempArr,{item:value,count:quantity}])
+        itemArr[index - 1] = { item: value, count: quantity }
         // setItemDetails(t, details) uncomment imp
         console.log("old testament234324234234324", t, tempArr);
          console.log("asdewf", itemArr)
@@ -40,8 +41,8 @@ let t = itemArr
         // if (details.businessName !== "" && details.itemCount !== (0 || NaN || "") && tempArr.length == initialCount) {
         //     setDisable(false)
         // }
-        if( initialCount == tempArr.length){
-            if(initialCount == 0 &&  tempArr.length == 0) {
+        if( initialCount == itemArr.length){
+            if(initialCount == 0 &&  itemArr.length == 0) {
                 setDisable(true)
                 return
             }
@@ -119,8 +120,7 @@ const [addAr,setAddAr]=useState([])
     }, [details.itemCount])
 const getAddAr = ()=>{
 
-    setAddAr([...addAr,...itemArr])
-    setItemArr([])
+    setItemDetails(itemArr,details)
 }
     const handleChange = (e) => {
         setDetails({
@@ -130,7 +130,7 @@ const getAddAr = ()=>{
         if (details.businessName !== "") { setDisable(false) }
     };
     const getStep = () => {
-        setItemDetails(tempArr,details)
+        setItemDetails(itemArr,details)
         // setActive("2")
         setTab("customer")
     }
@@ -148,16 +148,12 @@ const getAddAr = ()=>{
                     }
                 </div>
                 <Button name="Proceed Next" disable={disable} func={getStep} />
-                <div>
-                    {tempArr.map(items=>{
-                        return <div>{items.item } 23</div>  
-
-                    })}
+                {/* <div>
                     <hr></hr>
                       {itemArr.map(items=>{
-                        return <div>{items.item }</div>  
+                        return <div>{items.item +" fwewef " +items.count }</div>  
                     })}
-                </div>
+                </div> */}
             </div>
         </>
 

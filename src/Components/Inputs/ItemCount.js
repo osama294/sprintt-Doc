@@ -7,15 +7,17 @@ function ItemCount({ bname, name, indi, placeholder, type, onSelect,getAddAr }) 
     const [itemVal, setItemVal] = useState("")
     const [quantity, setQuantity] = useState(1)
     const [active, setActive] = useState(true)
-    
-
+   const[read ,setRead] = useState(false) 
+  
     const getValue = (index, value) => {
         setItemVal(value)
         console.log('check values', index, value, quantity)
     }
 useEffect(() => {
     // onSelect(indi,itemVal,quantity)
-    onSelect(indi, itemVal, quantity );getAddAr()
+    onSelect(indi, itemVal, quantity );
+    
+    getAddAr()
 }, [itemVal])
 
     const addItem = () => {
@@ -40,12 +42,12 @@ useEffect(() => {
             </div>
             <div className='input-quantity'>
                 <p className='field-name'>Quantity</p>
-                <p className='plus' onClick={() => { addItem() }}><AiFillPlusSquare /></p>
-                <p className='minus' onClick={() => { removeItem() }} ><AiFillMinusSquare /></p>
+                <p className='plus' onClick={() => { addItem();onSelect(indi, itemVal, quantity) }}><AiFillPlusSquare /></p>
+                <p className='minus' onClick={() => { removeItem(); onSelect(indi, itemVal, quantity) }} ><AiFillMinusSquare /></p>
                 <input placeholder={placeholder} type="number" className="quantity" onChange={(e) => { setQuantity(e.target.value); onSelect(indi, itemVal, quantity) }} value={quantity} name={name} />
             </div>
         
-            {show  && active && <Modal key={indi} itemNo={indi} onSelect={getValue} setItemVal={setItemVal} setShow={setShow} />}
+            {show  &&  <Modal key={indi} itemNo={indi} onSelect={getValue} setItemVal={setItemVal} setShow={setShow} />}
         </div>
         <div className='btn-row'>
    {/* {  active &&   <button onClick={()=>{}}>add</button>} */}
