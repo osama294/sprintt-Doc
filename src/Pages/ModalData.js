@@ -13,9 +13,13 @@ function ModalData({date, itemDetails, itemCreds, customerDetails, customerSigna
             report.save('report.pdf');
             
         });}
+        // const d = new Date(date,"dd/mm/yyyy");
+        // let dat = JSON.stringify(d)
+
 
     useEffect(() => {
         console.log("formfinaldata",date, itemDetails, itemCreds, customerDetails, customerSignature, installer)
+
     }, [customerSignature, installer])
 
     return (
@@ -49,7 +53,7 @@ function ModalData({date, itemDetails, itemCreds, customerDetails, customerSigna
                 </div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Date:</h5></div>
-                    {/* <div className='right'><p>{date || ""}</p></div> */}
+                <div className='right'><p>{date.toLocaleString('en-GB').slice(0,-10)}</p></div>
                 </div>
                 <div className='pdf-box'>
                     <div className='top'><h5>Items Details</h5></div>
