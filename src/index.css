@@ -1,5 +1,5 @@
 body {
-  font-family: "Poppins-Medium";
+  font-family: 'Poppins-Medium';
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -14,7 +14,7 @@ code {
 }
 
 @font-face {
-  font-family: "Poppins-Medium";
+  font-family: 'Poppins-Medium';
   src: local("Poppins-Medium"),
    url("./fonts/Poppins-Medium.ttf") format("truetype");
   font-weight: bold;
