@@ -28,9 +28,20 @@ function App() {
   //   console.log("onder",index);
   //   setTab(index);
   // };
-  useEffect(() => {
-   gettemArr()
-  }, [insta])
+  var  items = [] 
+
+  // useEffect(() => {
+  //  gettemArr()
+  // //  items.filter((item)=>{if (item.item !== '') {return item}  else return})
+  // itemDetails.forEach(element => {
+  //    if(element.item !== "") {
+  //         items.push(element)
+  //    }
+  //    else return 
+  // });
+  // //  setItemDetails(item => {if(item.item == '') {return } else return item})
+  //  console.log("sala",items)
+  // }, [items])
   
   const gettemArr = (arrr)=>{
     setInsta(arrr)

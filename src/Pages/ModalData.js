@@ -1,10 +1,10 @@
 import React from 'react'
-import { useEffect } from "react"
+import { useEffect,useState } from "react"
 import JsPDF from 'jspdf';
 import Sbutton from '../Components/Button/Sbutton'
 import './ModalData.css'
 
-function ModalData({date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
+function ModalData({count,date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
     const generatePDF = () => {
 
         const report = new JsPDF('portrait','pt','a4');
@@ -16,8 +16,21 @@ function ModalData({date, itemDetails, itemCreds, customerDetails, customerSigna
         // const d = new Date(date,"dd/mm/yyyy");
         // let dat = JSON.stringify(d)
 
+  const [itemCount , setItemCount ] = useState(0)
+  const [Items , setItems ] = useState([])
+  const updatedArr = itemDetails.filter((item ,index)=>{if(item.item !== "" ) {return item }})
+  useEffect(() => {
+   setItemCount(itemCreds.itemCount)
+
+   setItems(updatedArr)
+   console.log("ssssssss",Items)
+  }, [itemCount])
+
+
+  console.log("itemsssssssss",itemCount)
 
     useEffect(() => {
+         
         console.log("formfinaldata",date, itemDetails, itemCreds, customerDetails, customerSignature, installer)
 
     }, [customerSignature, installer])
@@ -33,12 +46,14 @@ function ModalData({date, itemDetails, itemCreds, customerDetails, customerSigna
                 </div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Number of items</h5></div>
-                    <div className='right'><p>{itemCreds?.itemCount}</p></div>
+                    <div className='right'><p>{Items.length}</p></div>
                 </div>
                 <div className='pdf-box'>
                     <div className='top'><h5>Items Details</h5></div>
-                    <div className='bottom'>{itemDetails?.map((item, index) => {
-                  if(item.item !== "")     { return  <div className='item-row' key={index}> <p className='p'>{item?.count}</p><p className='ps'>{item?.item}</p></div>}
+                    <div className='bottom'>{itemDetails?.map((item, index) => { 
+                  if(item.item !== "")     { return  <div className='item-row' key={index}> <p className='p'>{item?.count}</p><p className='ps'>{item?.item}</p></div>
+                
+                }
                     })}
 
                     </div>
@@ -53,7 +68,7 @@ function ModalData({date, itemDetails, itemCreds, customerDetails, customerSigna
                 </div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Date:</h5></div>
-                <div className='right'><p>{date.toLocaleString('en-GB').slice(0,-10)}</p></div>
+                <div className='right'><p>{ (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()}</p></div>
                 </div>
                 <div className='pdf-box'>
                     <div className='top'><h5>Items Details</h5></div>

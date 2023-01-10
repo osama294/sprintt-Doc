@@ -83,7 +83,7 @@ function Customer({ setTab, getData }) {
         <Input bname="Customer Name" name="customerName" placeholder="Example : John Doe" type="text" handleChange={handleChange} />
         <div className='input-container'>
         <p className='field-name'>Date</p>
-        <Calendar dateFormat="dd/mm/yy" value={date} placeholder="dd/mm/yyyy" onChange={(e) => {setDate(e.value) ;console.log("dates",e.value)}} style={{width:"335px",border:"none",padding:"0px"}} className='input' inputClassName="input"/>
+        <Calendar dateFormat="mm/dd/yy" value={date} placeholder="mm/dd/yyyy" onChange={(e) => {setDate(e.value) ;console.log("dates",e.value)}} style={{width:"335px",border:"none",padding:"0px"}} className='input' inputClassName="input"/>
         {/* <input placeholder={placeholder} min={min} value={val} type={type} className="input" name={name} onChange={handleChange} /> */}
       </div>
       <Input bname="Customer Email" name="email" placeholder="123@mail.com" type="text" handleChange={handleChange} />
