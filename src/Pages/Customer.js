@@ -75,16 +75,28 @@ function Customer({ setTab, getData }) {
   }
 
   const validateInputs = ()=>{
-    if(date == null){
-      toast.error("Please Select Date", {
-        position: toast.POSITION.TOP_CENTER
-      });
-    }
-  if(details.customerName == "" && details.email == ""  ){
+ if(details.customerName !== "" && details.email !== "" && !date == null ){
+  if( date !== null){
+  
+  } if(details.customerName !== ""){
+    
+  }
+  if(details.email !== ""){
+    
+  } if(imageURL !== null){
+  
+  }
+  
+ }
+else { if(details.customerName == "" && details.email == "" && date == null ){
     toast.error("Please Fill All Fields", {
       position: toast.POSITION.TOP_CENTER
     });
-  }else{ if(details.customerName == ""){
+  }else{   if( date == null){
+      toast.error("Please Select Date", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    } if(details.customerName == ""){
         toast.error("Please Enter Customer Name", {
             position: toast.POSITION.TOP_CENTER
           });
@@ -105,7 +117,7 @@ function Customer({ setTab, getData }) {
         position: toast.POSITION.TOP_CENTER
       });
     }
-  }
+  }}
 
 }
   const getStep = () => {

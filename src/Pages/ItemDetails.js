@@ -186,7 +186,10 @@ const getAddAr = ()=>{
           });
     }
     const validateInputs = ()=>{
-        if(details.businessName == ""){
+   if(details.businessName !== ""){
+   return
+   }
+        else{    if(details.businessName == ""){
             toast.error("Please Enter Business Name", {
                 position: toast.POSITION.TOP_LEFT
               });
@@ -195,7 +198,7 @@ const getAddAr = ()=>{
             toast.error("Please Enter Count", {
                 position: toast.POSITION.TOP_LEFT
               });
-        }
+        }}
     }
     return (
 

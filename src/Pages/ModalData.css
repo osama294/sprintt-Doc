@@ -71,6 +71,8 @@
 .pdf-container .pdf-box .signatures {
   width: 98px;
   height: 53px;
+  -o-object-fit: contain;
+     object-fit: contain;
   margin: 0 auto;
 }
 .pdf-container .pdf-box .bottom {
