@@ -159,6 +159,10 @@ const getAddAr = ()=>{
             ...details,
             [e.target.name]: e.target.value,
         });
+        if(details.itemCount > 100 ){
+            alert("cannot enter more than 100")
+            setDetails({...details,itemCount:100})
+        }
         if (details.businessName !== "") { setDisable(false) }
     };
     const getStep = () => {
