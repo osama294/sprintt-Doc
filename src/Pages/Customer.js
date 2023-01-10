@@ -94,11 +94,19 @@ function Customer({ setTab, getData }) {
             position: toast.POSITION.TOP_CENTER
           });
     }
- if(details.email !==  "") {if(details.email.match(validRegex) !==  true ){
+ if(details.email !==  "") {if(!details.email.match(validRegex)){
       toast.warn("Enter Valid Email !", {
         position: toast.POSITION.TOP_CENTER
       });
-    }}}
+     
+    }}
+    if(imageURL == null){
+      toast.warn("Enter Your Signature!", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+  }
+
 }
   const getStep = () => {
     getData(details, imageURL,date)

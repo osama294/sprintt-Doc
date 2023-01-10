@@ -71,7 +71,7 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
                 <div className='right'><p>{date ? (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() : "no date"}</p></div>
                 </div>
                 <div className='pdf-box'>
-                    <div className='top'><h5>Items Details</h5></div>
+                    <div className='top'><h5>Signature Customer:</h5></div>
                     <div className='bottom'><img src={customerSignature} className='signatures' /></div>
                 </div>
                 <div className='pdf-row'>
