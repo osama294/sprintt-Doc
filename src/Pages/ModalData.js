@@ -20,13 +20,17 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
   const [Items , setItems ] = useState([])
   const [response ,setResponse]= useState(null)
   const updatedArr = itemDetails.filter((item ,index)=>{if(item.item !== "" ) {return item }})
+  const [inputs ,setInputs ] = useState({business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
+
   useEffect(() => {
    setItemCount(itemCreds?.itemCount)
 
    setItems(updatedArr)
-   console.log("ssssssss",Items)
+   setItems(updatedArr)
+   setInputs({business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
+   console.log("ssssssss",)
   }, [itemCount])
-  const [inputs ,setInputs ] = useState({business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
+
 
 //   const requestOptions = {
 //     method: "POST",
