@@ -26,7 +26,7 @@ function App() {
   const [insta,setInsta] = useState(null)
   const [date ,setDate] = useState(null)
   const [showModal ,setshowModal] =useState(false)
-  const [activeLast ,setActiveLast] = useState(false)
+  const [activeLast ,setActiveLast] = useState(true)
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
   //   setTab(index);

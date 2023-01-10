@@ -53,6 +53,7 @@
   margin: 0 auto;
   width: 100%;
   max-width: 360px;
+  /* Hide scrollbar for IE, Edge and Firefox */
 }
 .pdf-container .pdf-box .top {
   max-width: 360px;
@@ -74,6 +75,13 @@
   -o-object-fit: contain;
      object-fit: contain;
   margin: 0 auto;
+}
+.pdf-container .pdf-box .bottom::-webkit-scrollbar {
+  display: none;
+}
+.pdf-container .pdf-box .bottom {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 .pdf-container .pdf-box .bottom {
   display: flex;

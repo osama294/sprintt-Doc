@@ -73,6 +73,15 @@
             object-fit: contain;
             margin: 0 auto;
         }
+        .bottom::-webkit-scrollbar {
+            display: none;
+          }
+          
+          /* Hide scrollbar for IE, Edge and Firefox */
+          .bottom {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+          }
         .bottom{
             display: flex;
             max-height: 120px;
