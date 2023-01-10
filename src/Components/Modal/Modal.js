@@ -16,6 +16,10 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
         setSearch(e.target.value.replace(/  +/g, ' '));
         
     };
+    useEffect(() => {
+     setData(datas)
+    }, [])
+    
     const mouseOver = (event, name) => {
         setHover(name)
     }
@@ -28,7 +32,7 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
                         <Input bname={`Select Item #` + itemNo} val={search} name={itemNo} handleChange={handleChange} />
                         <div className='item-container'>
                             {
-                                data.length < 1067 ? (
+                                data.length < 1066 ? (
                                     <div>loading</div>
                                 ) : (
                                     data.map((item, index) => {
