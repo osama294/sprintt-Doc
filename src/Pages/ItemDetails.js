@@ -17,13 +17,36 @@ function ItemDetails({ setTab, itemDetails, setItemDetails, setActive }) {
      const [tempArr,setTempArr]= useState([])
     const [itemArr, setItemArr] = useState([])
 let t = itemArr
+    //   updateCount
+    useEffect(() => {
+      
+    }, [initialCount])
+    
+    const deleteItem = (indi )=>{
+        setDetails( {...details , itemCount : details.itemCount - 1})
+        // setDetails({
+        //     ...details,
+        //     "itemCount":details.itemCount - 1,
+        // });
+        setInitialCount(initialCount => initialCount - 1)
+        const x =   itemArr.filter((item,index)=>{
+            if(index !== indi  ) return item
+      })
+        itemArr.filter((item,index)=>{
+              if(index !== indi  ) return item
+        })
+        setItemArr(x)
+        console.log("deleted",itemArr,initialCount,x)
+    }
     const getValuesInParent = (index, value, quantity) => {
           
         
         if(value !== '')
         setTempArr([...tempArr,{item:value,count:quantity}])
-        itemArr[index - 1] = { item: value, count: quantity }
+        itemArr[index ] = { item: value, count: quantity }
+        // if(index == )
         // setItemDetails(t, details) uncomment imp
+        
         console.log("old testament234324234234324", t, tempArr);
          console.log("asdewf", itemArr)
     
@@ -148,21 +171,21 @@ const getAddAr = ()=>{
         <>
             <div className='details'>
                 <Input bname="Business Name" name="businessName" placeholder="Example: XYZ Co." type="text" handleChange={handleChange} />
-                <Input bname="Number of items"min={0}  name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
+                <Input bname="Number of items"min={0}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
                 <div className='count-container'>
                     {
                         Array.from({ length: initialCount }).map((name, index) => {
-                            return <ItemCount key={index} addAr={addAr} getAddAr={getAddAr} name={name} onSelect={getValuesInParent} indi={index + 1} />
+                            return <ItemCount deleteItem={deleteItem} key={index} addAr={addAr} getAddAr={getAddAr} name={name} onSelect={getValuesInParent} indi={index } />
                         })
                     }
                 </div>
                 <Button name="Proceed Next" disable={disable} func={getStep} />
-                {/* <div>
+                <div>
                     <hr></hr>
                       {itemArr.map(items=>{
                         return <div>{items.item +" fwewef " +items.count }</div>  
                     })}
-                </div> */}
+                </div>
             </div>
         </>
 

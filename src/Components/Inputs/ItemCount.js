@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import Modal from '../Modal/Modal'
 import './input.css'
-import { AiFillMinusSquare, AiFillPlusSquare } from 'react-icons/ai'
-function ItemCount({ bname, name, indi, placeholder, type, onSelect,getAddAr }) {
+import { AiFillMinusSquare, AiFillPlusSquare ,AiOutlineCloseCircle} from 'react-icons/ai'
+function ItemCount({ deleteItem,bname, name, indi, placeholder, type, onSelect,getAddAr }) {
     const [show, setShow] = useState(false)
     const [itemVal, setItemVal] = useState("")
     const [quantity, setQuantity] = useState(1)
@@ -46,6 +46,9 @@ if(quantity <= 1){
                 <p className='plus' onClick={() => { addItem();onSelect(indi, itemVal, quantity) }}><AiFillPlusSquare /></p>
                 <p className='minus' onClick={() => { removeItem(); onSelect(indi, itemVal, quantity) }} ><AiFillMinusSquare /></p>
                 <input placeholder={placeholder} min={1} type="number" className="quantity" onChange={(e) => { setQuantity(e.target.value); onSelect(indi, itemVal, quantity) }} value={quantity} name={name} />
+            </div>
+            <div className='close'  onClick={()=>{console.log("index", indi);deleteItem(indi)}}>
+    <AiOutlineCloseCircle/>
             </div>
         
             {show  &&  <Modal key={indi} itemNo={indi} onSelect={getValue} setItemVal={setItemVal} setShow={setShow} />}
