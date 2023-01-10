@@ -4,7 +4,7 @@ import JsPDF from 'jspdf';
 import Sbutton from '../Components/Button/Sbutton'
 import './ModalData.css'
 
-function ModalData({count,date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
+function ModalData({setActiveLast,count,date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
     const generatePDF = () => {
 
         const report = new JsPDF('portrait','pt','a4');
@@ -62,6 +62,9 @@ const handleSubmit = (e) => {
           setResponse(res?.message);
           console.log(res?.message);
         });
+        
+        setActiveLast()
+        getModal()
   };
 
   console.log("itemsssssssss",itemCount)

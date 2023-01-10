@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
-import { toast, ToastContainer } from 'react-toastify';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import ItemCount from '../Components/Inputs/ItemCount';
 import Signature from '../Components/SignaturePad/Signature';
 import { Calendar } from 'primereact/calendar';
@@ -89,33 +89,44 @@ function Customer({ setTab, getData }) {
   
  }
 else { if(details.customerName == "" && details.email == "" && date == null ){
-    toast.error("Please Fill All Fields", {
-      position: toast.POSITION.TOP_CENTER
-    });
+    // toast.error("Please Fill All Fields", {
+    //   position: toast.POSITION.TOP_CENTER
+    // });
+    Notify.failure('Please Fill All Fields"');
+
   }else{   if( date == null){
-      toast.error("Please Select Date", {
-        position: toast.POSITION.TOP_CENTER
-      });
+      // toast.error("Please Select Date", {
+      //   position: toast.POSITION.TOP_CENTER
+      // });
+      Notify.failure('Please Select Date');
+
     } if(details.customerName == ""){
-        toast.error("Please Enter Customer Name", {
-            position: toast.POSITION.TOP_CENTER
-          });
+        // toast.error("Please Enter Customer Name", {
+        //     position: toast.POSITION.TOP_CENTER
+        //   });
+        Notify.failure('Please Enter Customer Name');
+
     }
     if(details.email == ""){
-        toast.error("Please Enter Email", {
-            position: toast.POSITION.TOP_CENTER
-          });
+        // toast.error("Please Enter Email", {
+        //     position: toast.POSITION.TOP_CENTER
+        //   });
+        Notify.failure('Please Enter Email');
+
     }
  if(details.email !==  "") {if(!details.email.match(validRegex)){
-      toast.warn("Enter Valid Email !", {
-        position: toast.POSITION.TOP_CENTER
-      });
-     
+      // toast.warn("Enter Valid Email !", {
+      //   position: toast.POSITION.TOP_CENTER
+      // });
+      Notify.failure('Enter Valid Email !');
+
     }}
     if(imageURL == null){
-      toast.warn("Enter Your Signature!", {
-        position: toast.POSITION.TOP_CENTER
-      });
+      // toast.warn("Enter Your Signature!", {
+      //   position: toast.POSITION.TOP_CENTER
+      // });
+      Notify.failure('Enter Your Signature!');
+
     }
   }}
 
@@ -128,7 +139,7 @@ else { if(details.customerName == "" && details.email == "" && date == null ){
   return (
 
     <>
-      <ToastContainer />
+      {/* <ToastContainer /> */}
       <div className='details'>
         <Input bname="Customer Name" name="customerName" placeholder="Example : Linda Brodie" type="text" handleChange={handleChange} />
         <div className='input-container'>

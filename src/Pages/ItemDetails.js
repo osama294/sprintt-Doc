@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Button from '../Components/Button/Button';
-import { toast, ToastContainer } from 'react-toastify';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import "react-toastify/dist/ReactToastify.css";
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
@@ -40,12 +40,12 @@ let t = itemArr
         setItemArr(x)
         console.log("deleted",itemArr,initialCount,x)
     }
-    const getValuesInParent = (index, value, quantity) => {
+    const getValuesInParent = (index, value, quantity,note) => {
           
         
         if(value !== '')
-        setTempArr([...tempArr,{item:value,count:quantity}])
-        itemArr[index ] = { item: value, count: quantity }
+        setTempArr([...tempArr,{item:value,count:quantity,note:note}])
+        itemArr[index ] = { item: value, count: quantity ,note:note}
         // if(index == )
         // setItemDetails(t, details) uncomment imp
         
@@ -162,14 +162,17 @@ const getAddAr = ()=>{
             [e.target.name]: e.target.value,
         });
         if(details.itemCount > 100 ){
-            toast.error("Please Enter Less Than 100", {
-                position: toast.POSITION.TOP_LEFT
-              });
+            // Notify.failure('Please Enter Count Less Than 100');
+            // toast.error("Please Enter Less Than 100", {
+            //     position: toast.POSITION.TOP_LEFT
+            //   });
             setDetails({...details,itemCount:100})
         }if(details.itemCount < 0){
-            toast.error("Please Greater Than 0 ", {
-                position: toast.POSITION.TOP_LEFT
-              });
+            // Notify.failure('Count must be greater than 0');
+            // toast.error("Please Greater Than 0 ", {
+            //     position: toast.POSITION.TOP_LEFT
+            //   });
+            
               setDetails({...details,itemCount:0})
         }
         
@@ -180,26 +183,30 @@ const getAddAr = ()=>{
         // setActive("2")
         setTab("customer")
     }
-    const notify = () => {
-        toast.error("Error Notification !", {
-            position: toast.POSITION.TOP_LEFT
-          });
-    }
+    // const notify = () => {
+    //   Notify.success('Sol lucet omnibus');
+
+    // }
     const validateInputs = ()=>{
-   if(details.businessName !== ""){
+   if(details.businessName !== "" && details.itemCount !== 0){
    return
    }
         else{    if(details.businessName == ""){
-            toast.error("Please Enter Business Name", {
-                position: toast.POSITION.TOP_LEFT
-              });
+            Notify.failure('Please Enter Business Name');
+
+            // toast.error("Please Enter Business Name", {
+            //     position: toast.POSITION.TOP_LEFT
+            //   });
         }
         if(details.itemCount == 0){
-            toast.error("Please Enter Count", {
-                position: toast.POSITION.TOP_LEFT
-              });
+            // toast.error("Please Enter Count", {
+            //     position: toast.POSITION.TOP_LEFT
+            //   });
+            Notify.failure('Please Enter Count');
+        
         }}
     }
+
     return (
 
         <>
@@ -213,7 +220,7 @@ const getAddAr = ()=>{
                         })
                     }
                 </div>
-                <ToastContainer />
+                
                 <Button name="Proceed Next"funcs={validateInputs}  disable={disable} func={getStep} />
                 {/* <div>
                     <hr></hr>

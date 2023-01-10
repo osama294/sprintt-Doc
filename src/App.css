@@ -72,3 +72,30 @@
 .hide{
   display: none;
 }
+
+.last{
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+}
+.last img{
+  width: 152px;
+  height: 156px;
+}
+.last p{
+margin-top: 32px;
+font-family: 'Poppins-Medium';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+text-align: center;
+
+color: #000000;
+
+}
+.last .btn {
+margin-top: 120px;
+}

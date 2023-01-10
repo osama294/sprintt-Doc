@@ -12,6 +12,8 @@ import logos from './images/logos.png'
 import Customer from './Pages/Customer';
 import InstallerDetails from './Pages/InstallerDetails';
 import ModalData from './Pages/ModalData';
+import email from './images/email.png'
+import Button from './Components/Button/Button';
 function App() {
   const [tab ,setTab] = useState("details")
   // const [active ,setActive]= useState("1")
@@ -24,11 +26,21 @@ function App() {
   const [insta,setInsta] = useState(null)
   const [date ,setDate] = useState(null)
   const [showModal ,setshowModal] =useState(false)
+  const [activeLast ,setActiveLast] = useState(false)
   // const sendDataToParent = (index) => { // the callback. Use a better name
   //   console.log("onder",index);
   //   setTab(index);
   // };
   var  items = [] 
+  const activeTrue=()=>{
+    setActiveLast(false)
+  }
+  const activeFalse=()=>{
+    setActiveLast(true)
+  }
+useEffect(() => {
+
+}, [])
 
   // useEffect(() => {
   //  gettemArr()
@@ -75,7 +87,7 @@ function App() {
         <Logo logo={logos}/>
       </div>
        
-       <div className='lower'>
+   { activeLast   ? <div className='lower'>
         <Tab setTab={setTab} tab={tab} />
         <div className={tab == "details" ? "show" : "hide"}>
         <ItemDetails gettemArr={gettemArr}  setTab={setTab} itemDetails={itemDetails} setItemDetails={getItemsData}/>
@@ -89,10 +101,17 @@ function App() {
        <InstallerDetails getInstallerData={getInstallerData} getModal={getModal}/>
        </div>
        {/* {tab == "installer" && <InstallerDetails/>} */}
-       </div>
+       </div> : <div className='last'>
+        <img src={email} />
+        <p>Operation has been completed successfully.<br></br> Check email for verification.</p> 
+        <Button name="Home"  disable={false} func={activeFalse}  />
+       </div> 
+      
+       }
     </div>
     <div>
-{  showModal &&    <ModalData date={date} itemDetails={itemDetails} itemCreds={itemCreds} customerSignature={customerSignature} customerDetails={customerDetails} showModal={showModal} getModal={getModal}  installer={installer}/> }    </div>
+{  showModal &&    <ModalData setActiveLast={activeTrue} date={date} itemDetails={itemDetails} itemCreds={itemCreds} customerSignature={customerSignature} customerDetails={customerDetails} showModal={showModal} getModal={getModal}  installer={installer}/> }    </div>
+  
     </div>
 
   );
