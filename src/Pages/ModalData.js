@@ -26,6 +26,12 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
    console.log("ssssssss",Items)
   }, [itemCount])
 
+  const requestOptions = {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    // body: JSON.stringify(inputs),
+  };
+
 
   console.log("itemsssssssss",itemCount)
 

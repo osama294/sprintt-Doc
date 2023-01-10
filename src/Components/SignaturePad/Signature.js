@@ -31,7 +31,7 @@ function Signature({active,setActive,imageURL,enable ,setImageURL}) {
          <p className='field-name'>Add Signature Here</p>
       
         </div>
-         <span className='span' onClick={() =>{  setShow(true);}}>Clear Signature</span>
+         <span className='span' onClick={() =>{  setShow(true); setImageURL(null)}}>Clear Signature</span>
       </div>
       <p className='field-note'>Please fill the fields above to enable signature*</p>
    <div className='sig-box'>

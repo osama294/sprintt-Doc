@@ -162,8 +162,15 @@ const getAddAr = ()=>{
             [e.target.name]: e.target.value,
         });
         if(details.itemCount > 100 ){
-            alert("cannot enter more than 100")
+            toast.error("Please Enter Less Than 100", {
+                position: toast.POSITION.TOP_LEFT
+              });
             setDetails({...details,itemCount:100})
+        }if(details.itemCount < 0){
+            toast.error("Please Greater Than 0 ", {
+                position: toast.POSITION.TOP_LEFT
+              });
+              setDetails({...details,itemCount:0})
         }
         
         if (details.businessName !== "") { setDisable(false) }
