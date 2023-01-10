@@ -171,7 +171,7 @@ const getAddAr = ()=>{
         <>
             <div className='details'>
                 <Input bname="Business Name" name="businessName" placeholder="Example: XYZ Co." type="text" handleChange={handleChange} />
-                <Input bname="Number of items"min={0}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
+                <Input bname="Number of items"min={0} max={100}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
                 <div className='count-container'>
                     {
                         Array.from({ length: initialCount }).map((name, index) => {
@@ -180,12 +180,12 @@ const getAddAr = ()=>{
                     }
                 </div>
                 <Button name="Proceed Next" disable={disable} func={getStep} />
-                <div>
+                {/* <div>
                     <hr></hr>
                       {itemArr.map(items=>{
                         return <div>{items.item +" fwewef " +items.count }</div>  
                     })}
-                </div>
+                </div> */}
             </div>
         </>
 

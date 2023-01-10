@@ -20,7 +20,7 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
   const [Items , setItems ] = useState([])
   const updatedArr = itemDetails.filter((item ,index)=>{if(item.item !== "" ) {return item }})
   useEffect(() => {
-   setItemCount(itemCreds.itemCount)
+   setItemCount(itemCreds?.itemCount)
 
    setItems(updatedArr)
    console.log("ssssssss",Items)
@@ -68,7 +68,7 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
                 </div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Date:</h5></div>
-                <div className='right'><p>{ (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear()}</p></div>
+                <div className='right'><p>{date ? (date.getMonth() + 1) + '/' + date.getDate() + '/' +  date.getFullYear() : "no date"}</p></div>
                 </div>
                 <div className='pdf-box'>
                     <div className='top'><h5>Items Details</h5></div>

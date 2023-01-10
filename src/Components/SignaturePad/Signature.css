@@ -46,7 +46,12 @@
   width: 355px;
   height: 200px;
   border-radius: 8px;
+  color: #D3BC8C;
   border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
 }
 .sigan .sig-box {
   align-items: center;
@@ -55,6 +60,46 @@
   flex-direction: column;
   gap: 10px;
 }
-.sigan .sig-box .suvbtn {
-  width: 335px !important;
+
+.overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 111111111111111120;
+}
+.overlay .modal {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  padding: 0px !important;
+  font-size: 28px;
+  width: 385px;
+  max-width: 386px;
+  z-index: 111111111111111100000000000000;
+  color: black;
+  background-color: #fff;
+  border-radius: 1em;
+  transform: translate(-50%, -50%);
+  outline: transparent;
+}
+.overlay .modal .btn-row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.signat {
+  width: 100%;
+  height: 100%;
 }/*# sourceMappingURL=Signature.css.map */

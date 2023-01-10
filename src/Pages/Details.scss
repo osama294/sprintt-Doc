@@ -7,6 +7,12 @@
     .input-row{
         display: flex;
         gap: 5px;
+        .close{
+          font-size: 21px;
+          display: flex;
+          align-items: flex-end;
+          margin: 0px 0px 16px 5px;
+      }
     }
     .count-container{
         display: flex;
