@@ -74,6 +74,8 @@
         }
         .bottom{
             display: flex;
+            max-height: 120px;
+            overflow-y: scroll;
             justify-content: flex-start;
             flex-direction: column;
             gap: 8px;

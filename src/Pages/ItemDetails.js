@@ -1,5 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react'
 import Button from '../Components/Button/Button';
+import { toast, ToastContainer } from 'react-toastify';
+import "react-toastify/dist/ReactToastify.css";
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import './Details.css'
@@ -163,12 +165,30 @@ const getAddAr = ()=>{
             alert("cannot enter more than 100")
             setDetails({...details,itemCount:100})
         }
+        
         if (details.businessName !== "") { setDisable(false) }
     };
     const getStep = () => {
         setItemDetails(itemArr,details)
         // setActive("2")
         setTab("customer")
+    }
+    const notify = () => {
+        toast.error("Error Notification !", {
+            position: toast.POSITION.TOP_LEFT
+          });
+    }
+    const validateInputs = ()=>{
+        if(details.businessName == ""){
+            toast.error("Please Enter Business Name", {
+                position: toast.POSITION.TOP_LEFT
+              });
+        }
+        if(details.itemCount == 0){
+            toast.error("Please Enter Count", {
+                position: toast.POSITION.TOP_LEFT
+              });
+        }
     }
     return (
 
@@ -183,7 +203,8 @@ const getAddAr = ()=>{
                         })
                     }
                 </div>
-                <Button name="Proceed Next" disable={disable} func={getStep} />
+                <ToastContainer />
+                <Button name="Proceed Next"funcs={validateInputs}  disable={disable} func={getStep} />
                 {/* <div>
                     <hr></hr>
                       {itemArr.map(items=>{

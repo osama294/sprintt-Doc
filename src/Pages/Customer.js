@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Button from '../Components/Button/Button';
 import Input from '../Components/Inputs/Input'
+import { toast, ToastContainer } from 'react-toastify';
 import ItemCount from '../Components/Inputs/ItemCount';
 import Signature from '../Components/SignaturePad/Signature';
 import { Calendar } from 'primereact/calendar';
@@ -73,7 +74,32 @@ function Customer({ setTab, getData }) {
     disable()
   }
 
-
+  const validateInputs = ()=>{
+    if(date == null){
+      toast.error("Please Select Date", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
+  if(details.customerName == "" && details.email == ""  ){
+    toast.error("Please Fill All Fields", {
+      position: toast.POSITION.TOP_CENTER
+    });
+  }else{ if(details.customerName == ""){
+        toast.error("Please Enter Customer Name", {
+            position: toast.POSITION.TOP_CENTER
+          });
+    }
+    if(details.email == ""){
+        toast.error("Please Enter Email", {
+            position: toast.POSITION.TOP_CENTER
+          });
+    }
+ if(details.email !==  "") {if(details.email.match(validRegex) !==  true ){
+      toast.warn("Enter Valid Email !", {
+        position: toast.POSITION.TOP_CENTER
+      });
+    }}}
+}
   const getStep = () => {
     getData(details, imageURL,date)
     // setActive("3")
@@ -82,6 +108,7 @@ function Customer({ setTab, getData }) {
   return (
 
     <>
+      <ToastContainer />
       <div className='details'>
         <Input bname="Customer Name" name="customerName" placeholder="Example : John Doe" type="text" handleChange={handleChange} />
         <div className='input-container'>
@@ -92,7 +119,7 @@ function Customer({ setTab, getData }) {
       <Input bname="Customer Email" name="email" placeholder="123@mail.com" type="text" handleChange={handleChange} />
         {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text" handleChange={handleChange} /> */}
         <Signature active={active} setImageURL={getSignatureValue} imageURL={imageURL} />
-        <Button name="Proceed Next" disable={disabled} page="customer" func={getStep} />
+        <Button name="Proceed Next" disable={disabled} funcs={validateInputs} page="customer" func={getStep} />
       </div>
     </>
 
