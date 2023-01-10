@@ -6,17 +6,16 @@ import {FaPlusSquare} from 'react-icons/fa'
 function Signature({active,setActive,imageURL,enable ,setImageURL}) {
   const sigCanvas = useRef()
   const [show, setShow] = useState(false)
-  useEffect(() => {
-      if(imageURL == null){
+  // useEffect(() => {
+  //     if(imageURL == null){
         
-      }
-  }, [])
+  //     }
+  // }, [])
   
   const create = () => {
     const URL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png')
     setImageURL(URL)
-    console.log("image",imageURL)
-    enable()
+
   }
   const download = () => {
     const dlink = document.createElement("a")
@@ -32,7 +31,7 @@ function Signature({active,setActive,imageURL,enable ,setImageURL}) {
          <p className='field-name'>Add Signature Here</p>
       
         </div>
-         <span className='span' onClick={() =>{  setShow(true);sigCanvas.current.clear()}}>Clear Signature</span>
+         <span className='span' onClick={() =>{  setShow(true);}}>Clear Signature</span>
       </div>
       <p className='field-note'>Please fill the fields above to enable signature*</p>
    <div className='sig-box'>
