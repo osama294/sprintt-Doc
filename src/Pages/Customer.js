@@ -34,10 +34,10 @@ function Customer({ setTab, getData }) {
     if (details.customerName !== "" && date !== null && details.email !== "") {
       console.log("accepted")
          if(details.email.match(validRegex) ){
-          setActive(true)
+          disable()
          }
          else{
-          setActive(false)
+          enable()
          }
     }
     // else
