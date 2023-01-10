@@ -204,7 +204,7 @@ const getAddAr = ()=>{
 
         <>
             <div className='details'>
-                <Input bname="Business Name" name="businessName" placeholder="Example: XYZ Co." type="text" handleChange={handleChange} />
+                <Input bname="Business Name" name="businessName" placeholder="Example: Joe Blow Gym" type="text" handleChange={handleChange} />
                 <Input bname="Number of items"min={0} max={100}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
                 <div className='count-container'>
                     {

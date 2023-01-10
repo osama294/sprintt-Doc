@@ -15,9 +15,10 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
         });}
         // const d = new Date(date,"dd/mm/yyyy");
         // let dat = JSON.stringify(d)
-
+        
   const [itemCount , setItemCount ] = useState(0)
   const [Items , setItems ] = useState([])
+  const [response ,setResponse]= useState(null)
   const updatedArr = itemDetails.filter((item ,index)=>{if(item.item !== "" ) {return item }})
   useEffect(() => {
    setItemCount(itemCreds?.itemCount)
@@ -25,13 +26,39 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
    setItems(updatedArr)
    console.log("ssssssss",Items)
   }, [itemCount])
+  const [inputs ,setInputs ] = useState({business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
 
-  const requestOptions = {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    // body: JSON.stringify(inputs),
+//   const requestOptions = {
+//     method: "POST",
+//     headers: { "Content-Type": "application/json" },
+//     body: JSON.stringify(inputs),
+//   };
+// useEffect(() => {
+//     fetch("https://globaltechnologia.org/webAdmin/api/contactus", requestOptions)
+//     .then((response) => response.json())
+//     .then((res) => {
+//       console.log(res);
+//       setResponse(res.message);
+//       console.log(res.message);
+//     });
+// }, [])
+const handleSubmit = (e) => {
+    // e.preventDefault();
+
+      const requestOptions = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(inputs),
+      };
+
+      fetch("https://globaltechnologia.org/webAdmin/api/send_pdf_data", requestOptions)
+        .then((response) => response.json())
+        .then((res) => {
+          console.log(res);
+          setResponse(res?.message);
+          console.log(res?.message);
+        });
   };
-
 
   console.log("itemsssssssss",itemCount)
 
@@ -91,7 +118,7 @@ function ModalData({count,date, itemDetails, itemCreds, customerDetails, custome
             </div>
             <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={getModal} onClick={()=>{console.log("close")}}/>
-                        <Sbutton name="Confirm" type="confirm" func={generatePDF} onClick={()=>{console.log("close")}}/>
+                        <Sbutton name="Confirm" type="confirm" func={handleSubmit} onClick={()=>{console.log("close")}}/>
                     </div>
             </div>
         </div>
