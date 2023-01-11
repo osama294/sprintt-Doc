@@ -4,7 +4,7 @@ import JsPDF from 'jspdf';
 import Sbutton from '../Components/Button/Sbutton'
 import './ModalData.css'
 
-function ModalData({setActiveLast,count,date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
+function ModalData({setTab,setActiveLast,count,date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
     const generatePDF = () => {
 
         const report = new JsPDF('portrait','pt','a4');
@@ -20,7 +20,7 @@ function ModalData({setActiveLast,count,date, itemDetails, itemCreds, customerDe
   const [Items , setItems ] = useState([])
   const [response ,setResponse]= useState(null)
   const updatedArr = itemDetails.filter((item ,index)=>{if(item.item !== "" ) {return item }})
-  const [inputs ,setInputs ] = useState({business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
+  const [inputs ,setInputs ] = useState({})
 
   useEffect(() => {
    setItemCount(itemCreds?.itemCount)

@@ -37,6 +37,16 @@ function App() {
   }
   const activeFalse=()=>{
     setActiveLast(true)
+    setInstaller(null)
+    
+  setCustomerDetails(null)
+  setDate(null)
+  setCustomerSignature(null)
+  setshowModal(null)
+  setItemCreds(null)
+  setItemDetails([])
+  setInsta(null)
+    setTab("details")
   }
 useEffect(() => {
 
@@ -110,7 +120,7 @@ useEffect(() => {
        }
     </div>
     <div>
-{  showModal &&    <ModalData setActiveLast={activeTrue} date={date} itemDetails={itemDetails} itemCreds={itemCreds} customerSignature={customerSignature} customerDetails={customerDetails} showModal={showModal} getModal={getModal}  installer={installer}/> }    </div>
+{  showModal &&    <ModalData setTab={setTab} setActiveLast={activeTrue} date={date} itemDetails={itemDetails} itemCreds={itemCreds} customerSignature={customerSignature} customerDetails={customerDetails} showModal={showModal} getModal={getModal}  installer={installer}/> }    </div>
   
     </div>
 
