@@ -11,7 +11,7 @@ function ItemDetails({ setTab, itemDetails, setItemDetails, setActive }) {
     const [disable, setDisable] = useState(true)
     const [details, setDetails] = useState({
         businessName: "",
-        itemCount: 0,
+        itemCount: 1,
 
     });
     const [initialCount, setInitialCount] = useState(0)
@@ -168,7 +168,7 @@ const getAddAr = ()=>{
             //     position: toast.POSITION.TOP_LEFT
             //   });
             setDetails({...details,itemCount:100})
-        }if(e.target.value <  0 ){
+        }if(e.target.value <  1){
             // Notify.failure('Count must be greater than 0');
             // toast.error("Please Greater Than 0 ", {
             //     position: toast.POSITION.TOP_LEFT
