@@ -161,19 +161,20 @@ const getAddAr = ()=>{
             ...details,
             [e.target.name]: e.target.value,
         });
+        console.log("minus",details.itemCount)
         if(e.target.value > 100 ){
             // Notify.failure('Please Enter Count Less Than 100');
             // toast.error("Please Enter Less Than 100", {
             //     position: toast.POSITION.TOP_LEFT
             //   });
             setDetails({...details,itemCount:100})
-        }if(e.target.value <  0){
+        }if(e.target.value <  0 ){
             // Notify.failure('Count must be greater than 0');
             // toast.error("Please Greater Than 0 ", {
             //     position: toast.POSITION.TOP_LEFT
             //   });
             
-              setDetails({...details,itemCount:1})
+              setDetails({...details,itemCount:0})
         }
         
         if (details.businessName !== "") { setDisable(false) }
