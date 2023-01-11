@@ -27,7 +27,7 @@ function ModalData({setTab,setActiveLast,count,date, itemDetails, itemCreds, cus
 
    setItems(updatedArr)
    setItems(updatedArr)
-   setInputs({business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
+   setInputs({date:date,business_Name :itemCreds,item_details:Items,itemCount:Items.length,customerDetails:customerDetails,customer_signature:customerSignature,installer:installer})
    console.log("ssssssss",)
   }, [itemCount])
 
