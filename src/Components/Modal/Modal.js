@@ -21,6 +21,7 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
     };
     useEffect(() => {
      setData(datas)
+     console.log("data",datas)
     }, [])
    const inputCheck =()=>{
     // if(datas.filter()){
@@ -39,14 +40,14 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
                         <Input bname={`Select Item #` + itemNo} val={search} name={itemNo} handleChange={handleChange} />
                         <div className='item-container'>
                             {
-                                data.length < 1066 ? (
+                                data.length  == 0 ? (
                                     <div>loading</div>
                                 ) : (
                                     data.map((item, index) => {
-                                        if (item.Name.toString().toLowerCase().includes(search.toString().toLowerCase()) || search === '') {
+                                        if (item?.Allante?.toString().toLowerCase().includes(search.toString().toLowerCase()) || search === '') {
 
-                                            return (<> {hover == item.Name ?  <div key={index} onClick={(e)=>{setActive(!active); setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item-hover">{item.Name}</div>
-                                                : <div key={index}  onMouseOver={() => { setHover(item.Name) }} onClick={(e)=>{ setActive(!active);setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item">{item.Name}</div>}</>)
+                                            return (<> {hover == item.Allante ?  <div key={index} onClick={(e)=>{setActive(!active); setSearch(item.Allante);onSelect(itemNo, item.Allante)}} className="item-hover">{item.Allante}</div>
+                                                : <div key={index}  onMouseOver={() => { setHover(item.Allante) }} onClick={(e)=>{ setActive(!active);setSearch(item.Allante);onSelect(itemNo, item.Allante)}} className="item">{item.Allante}</div>}</>)
                                         }
                                     })
                                 )
