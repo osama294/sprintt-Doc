@@ -161,19 +161,19 @@ const getAddAr = ()=>{
             ...details,
             [e.target.name]: e.target.value,
         });
-        if(details.itemCount > 100 ){
+        if(e.target.value > 100 ){
             // Notify.failure('Please Enter Count Less Than 100');
             // toast.error("Please Enter Less Than 100", {
             //     position: toast.POSITION.TOP_LEFT
             //   });
             setDetails({...details,itemCount:100})
-        }if(details.itemCount < 0){
+        }if(e.target.value <  0){
             // Notify.failure('Count must be greater than 0');
             // toast.error("Please Greater Than 0 ", {
             //     position: toast.POSITION.TOP_LEFT
             //   });
             
-              setDetails({...details,itemCount:0})
+              setDetails({...details,itemCount:1})
         }
         
         if (details.businessName !== "") { setDisable(false) }
@@ -211,8 +211,8 @@ const getAddAr = ()=>{
 
         <>
             <div className='details'>
-                <Input bname="Business Name" name="businessName" placeholder="Example: Joe Blow Gym" type="text" handleChange={handleChange} />
-                <Input bname="Number of items"min={0} max={100}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
+                <Input bname="Business Name" name="businessName"min={0} maxlength={40}  placeholder="Example: Joe Blow Gym" type="text" handleChange={handleChange} />
+                <Input bname="Number of items"min={0} maxlength={100}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
                 <div className='count-container'>
                     {
                         Array.from({ length: initialCount }).map((name, index) => {
