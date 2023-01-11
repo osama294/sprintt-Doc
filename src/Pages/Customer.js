@@ -70,8 +70,13 @@ function Customer({ setTab, getData }) {
     e.preventDefault()
   };
   const getSignatureValue = (signature) => {
+    if(imageURL == null){
+      enable()
+    }else{
+       disable()}
     setImageURL(signature)
-    disable()
+
+   
   }
 
   const validateInputs = ()=>{

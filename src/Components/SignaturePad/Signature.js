@@ -13,9 +13,20 @@ function Signature({active,setActive,imageURL,enable ,setImageURL}) {
   // }, [])
   
   const create = () => {
+     console.log("redsex",sigCanvas.current.isEmpty())
+    
     const URL = sigCanvas.current.getTrimmedCanvas().toDataURL('image/png')
     setImageURL(URL)
 
+  }
+  const checkSignature = ()=>{
+    if(sigCanvas.current.isEmpty() == true ){
+      setImageURL(null)
+      setImageURL(null)
+      setShow(false)
+    }if(sigCanvas.current.isEmpty() == false){
+      create();  setShow(false);
+    }
   }
   const download = () => {
     const dlink = document.createElement("a")
@@ -48,7 +59,7 @@ function Signature({active,setActive,imageURL,enable ,setImageURL}) {
                 ref={sigCanvas} />
                     <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={setShow} onClick={()=>{console.log("close")}}/>
-                        <button className='suvbtn' onClick={()=>{ create();  setShow(false); }}>Confirm</button>
+                        <button className='suvbtn' onClick={()=>{ checkSignature() }}>Confirm</button>
                         {/* <Sbutton name="Confirm" type="confirm" func={setShow} onClick={()=>{console.log("close")}}/> */}
                     </div>
                   </div>

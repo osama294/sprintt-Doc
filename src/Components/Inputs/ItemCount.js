@@ -68,7 +68,7 @@ if(quantity <= 1){
         </div>
         <div className='btn-row'>
             {/* <span>{note?.note}</span> */}
-        <Input bname="" name="note" placeholder="Note" maxlength={200} type="text" handleChange={handleChange}/>
+        <Input bname="" name="note" placeholder="Note" maxlength={60} type="text" handleChange={handleChange}/>
    {/* {  active &&   <button onClick={()=>{}}>add</button>} */}
         </div>
         </div>

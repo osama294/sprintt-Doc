@@ -15,6 +15,7 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
         console.log("testament", e.target.value)
         setSearch(e.target.value.replace(/  +/g, ' '));
         
+        
     };
     useEffect(() => {
      setData(datas)

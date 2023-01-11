@@ -3,6 +3,7 @@ import { useEffect,useState } from "react"
 import JsPDF from 'jspdf';
 import Sbutton from '../Components/Button/Sbutton'
 import './ModalData.css'
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 function ModalData({setTab,setActiveLast,count,date, itemDetails, itemCreds, customerDetails, customerSignature, installer , getModal }) {
     const generatePDF = () => {
@@ -56,15 +57,19 @@ const handleSubmit = (e) => {
       };
 
       fetch("https://globaltechnologia.org/webAdmin/api/send_pdf_data", requestOptions)
-        .then((response) => response.json())
-        .then((res) => {
-          console.log(res);
-          setResponse(res?.message);
-          console.log(res?.message);
+        .then((response) =>{ return  response.json();} )
+        .then((response) => {
+          console.log("ewf",response);
+      
+          setResponse(response?.message);
+        //   Notify.success('Enter Installer Name');
+          console.log(response?.message);
         });
-        
+      if (response !== "")  {  
+        // console.log("ewf", response)
         setActiveLast()
         getModal()
+}
   };
 
   console.log("itemsssssssss",itemCount)
@@ -78,7 +83,7 @@ const handleSubmit = (e) => {
     return (
         <><div className='overlay'>
             <div className='modal'>  
-            <div className='pdf-container' id='report'>
+        { response !=="" ?   <div className='pdf-container' id='report'>
                 <div className='head'><h4>Order Details</h4></div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Business Name</h5></div>
@@ -122,7 +127,7 @@ const handleSubmit = (e) => {
                     <div className='left'><h5>Notes:</h5></div>
                     <div className='right'><p>{installer?.notes}</p></div>
                 </div>
-            </div>
+            </div>: ""}
             <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={getModal} onClick={()=>{console.log("close")}}/>
                         <Sbutton name="Confirm" type="confirm" func={handleSubmit} onClick={()=>{console.log("close")}}/>
