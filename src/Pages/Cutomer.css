@@ -1,21 +1,28 @@
-.customer {
+.layout {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(100vh - 150px);
+}
+.layout .customer {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
 }
-.customer .input-row {
+.layout .customer .input-row {
   display: flex;
   gap: 5px;
 }
-.customer .input-container {
+.layout .customer .input-container {
   display: flex;
   flex-direction: column;
   position: relative;
   align-items: flex-start;
 }
-.customer .input-container .field-name {
+.layout .customer .input-container .field-name {
   font-family: "Poppins-Medium";
   font-style: normal;
   font-weight: 400;
@@ -24,7 +31,7 @@
   color: black;
   margin-bottom: 9px;
 }
-.customer .input-container input {
+.layout .customer .input-container input {
   font-family: "Poppins-Medium";
   outline: none;
   font-style: normal;
@@ -37,7 +44,7 @@
   line-height: 18px;
   padding: 16px 0px 14px 27px;
 }
-.customer .input-container .input {
+.layout .customer .input-container .input {
   font-family: "Poppins-Medium";
   outline: none;
   font-style: normal;

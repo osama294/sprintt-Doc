@@ -1,5 +1,6 @@
 .sigan{ max-width: 365px;
     // max-height: 200px;
+    height: 295px;
     .sigan-row{
         display: flex;
         justify-content: space-between;
@@ -37,15 +38,16 @@
 }
     border: 1px  black;
 .sigCanvas{
-    width: 100%;
-    height: 200px;
+    width: 90%;
+    margin: 0 auto;
+    height: 160px;
     // max-width: 3px;
     // max-height: 200px;
     border-radius: 8px;
     border: 1px solid black;
 }
 .sigCan{
-    width: 355px;
+    width: 330px;
     height: 200px;
     border-radius: 8px;
     color: #D3BC8C;
@@ -93,7 +95,7 @@ gap: 10px;
         flex-direction: column;
         padding: 0px !important;
         font-size: 28px;
-        width: 385px;
+        width: 330px;
         max-width: 386px;
         z-index: 111111111111111111111111111111;
         color: black;
@@ -106,4 +108,5 @@ gap: 10px;
   .signat{
     width: 100%;
     height: 100%;
+    object-fit: contain;
   }

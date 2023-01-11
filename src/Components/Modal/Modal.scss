@@ -14,7 +14,7 @@
     flex-direction: column;
     padding: 5px;
     font-size: 28px;
-    width: 385px;
+    width: 330px !important;
     max-width: 386px;
     z-index: 111111111111111111111111111111;
     color: black;
@@ -23,6 +23,12 @@
     transform: translate(-50%, -50%);
     outline: transparent;
     .item-box{
+      .input-container{
+        width: 300px;
+        .input{
+          min-width: 300px !important;
+        }
+      }
         display: flex;
         flex-direction: column;
         gap: 10px;
@@ -37,7 +43,7 @@
             border-radius: 8px;
             overflow-y: scroll;
             gap: 8px;
-            width: 364px;
+            width: 300px;
             .item{
 font-family: 'Poppins-Medium';                font-style: normal;
                 font-weight: 400;

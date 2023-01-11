@@ -1,21 +1,29 @@
-.installer-details {
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+  height: calc(100vh - 110px);
+}
+.layout .installer-details {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
 }
-.installer-details .input-row {
+.layout .installer-details .input-row {
   display: flex;
   gap: 5px;
 }
-.installer-details .input-message {
+.layout .installer-details .input-message {
   display: flex;
   flex-direction: column;
   position: relative;
   align-items: flex-start;
 }
-.installer-details .input-message .field-message {
+.layout .installer-details .input-message .field-message {
   font-family: "Poppins-Medium";
   font-style: normal;
   font-weight: 400;
@@ -24,7 +32,7 @@
   color: black;
   margin-bottom: 9px;
 }
-.installer-details .input-message .message {
+.layout .installer-details .input-message .message {
   word-wrap: break-word;
   word-break: break-all;
   outline: none;

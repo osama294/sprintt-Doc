@@ -44,21 +44,31 @@
 }
 .input-quantity .plus {
   margin: 0px;
-  font-size: 40px;
-  width: 50px;
-  height: 50px;
-  right: 0;
-  bottom: 0;
+  font-size: 26px;
+  width: 40px;
+  top: 50px;
+  height: 40px;
+  right: 5px;
+  display: flex;
+  align-items: center;
   position: absolute;
+  justify-content: center;
+  background: #E2E3E3;
+  border-radius: 4px;
 }
 .input-quantity .minus {
   margin: 0px;
-  font-size: 40px;
-  width: 50px;
-  height: 50px;
+  font-size: 20px;
+  width: 40px;
+  top: 50px;
+  height: 40px;
+  left: 5px;
+  display: flex;
+  align-items: center;
   position: absolute;
-  bottom: 0;
-  left: 0;
+  justify-content: center;
+  background: #E2E3E3;
+  border-radius: 4px;
 }
 .input-quantity .quantity {
   font-family: "Poppins-Medium";

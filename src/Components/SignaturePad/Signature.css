@@ -1,5 +1,6 @@
 .sigan {
   max-width: 365px;
+  height: 295px;
   border: 1px black;
 }
 .sigan .sigan-row {
@@ -37,13 +38,14 @@
   color: rgba(0, 0, 0, 0.5);
 }
 .sigan .sigCanvas {
-  width: 100%;
-  height: 200px;
+  width: 90%;
+  margin: 0 auto;
+  height: 160px;
   border-radius: 8px;
   border: 1px solid black;
 }
 .sigan .sigCan {
-  width: 355px;
+  width: 330px;
   height: 200px;
   border-radius: 8px;
   color: #D3BC8C;
@@ -80,7 +82,7 @@
   flex-direction: column;
   padding: 0px !important;
   font-size: 28px;
-  width: 385px;
+  width: 330px;
   max-width: 386px;
   z-index: 111111111111111100000000000000;
   color: black;
@@ -102,4 +104,6 @@
 .signat {
   width: 100%;
   height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }/*# sourceMappingURL=Signature.css.map */

@@ -46,15 +46,18 @@ function InstallerDetails({getInstallerData,getModal}) {
     
     <>
        {/* <ToastContainer /> */}
-    <div className='installer-details'>
+       <div className='layout'>
+ <div className='installer-details'>
      <Input bname="Installer Name" name="installerName" min={0} maxlength={40} placeholder="Justin Brodie" type="text" handleChange={handleChange}/>
      {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text"  handleChange={handleChange}/> */}
      <div className='input-message'>
        <p className='field-message'>Add Notes</p>
        <textarea placeholder="Add comments here.." maxLength={200} type="text" className="message" name="notes"  onChange={handleChange}/>
     </div>
-    <Button name="Proceed Next" disable={disable} funcs={validateInputs} func={getStep} />
-    </div>
+    </div> 
+      <Button name="Proceed Next" disable={disable} funcs={validateInputs} func={getStep} />
+
+       </div>
     </>
     
   )

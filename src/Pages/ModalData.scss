@@ -28,8 +28,20 @@
         }
       }
   }
+  .pdf-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .pdf-container {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 .pdf-container{
     border-radius: 16px;
+    max-height: 365px;
+    overflow-y: scroll;
+    
     .head{
         display: flex;
         width: 100%;
@@ -96,6 +108,7 @@
             align-items: flex-start;
             .item-row{
                 display: flex;
+    
                 align-items: center;
                 gap: 16px;
                 .p{

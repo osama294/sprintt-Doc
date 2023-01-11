@@ -145,7 +145,8 @@ else { if(details.customerName == "" && details.email == "" && date == null ){
 
     <>
       {/* <ToastContainer /> */}
-      <div className='details'>
+      <div className='layout'>
+      <div className='customer'>
         <Input bname="Customer Name" name="customerName" placeholder="Example : Linda Brodie" type="text" handleChange={handleChange} />
         <div className='input-container'>
         <p className='field-name'>Date</p>
@@ -155,8 +156,11 @@ else { if(details.customerName == "" && details.email == "" && date == null ){
       <Input bname="Customer Email" name="email" placeholder="bindabrodie@gmail.com" type="text" handleChange={handleChange} />
         {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text" handleChange={handleChange} /> */}
         <Signature active={active} setImageURL={getSignatureValue} imageURL={imageURL} />
-        <Button name="Proceed Next" disable={disabled} funcs={validateInputs} page="customer" func={getStep} />
+       </div>  
+       <Button name="Proceed Next" disable={disabled} funcs={validateInputs} page="customer" func={getStep} />
       </div>
+  
+      
     </>
 
   )

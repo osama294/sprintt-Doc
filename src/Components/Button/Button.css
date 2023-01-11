@@ -1,24 +1,27 @@
 .btn {
-  padding: 14px 115px;
+  padding: 14px 80px;
   font-family: "Poppins-Medium";
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 20px;
+  width: 335px;
   border-radius: 8px;
   border: none;
   background-color: black;
   outline: none;
   text-align: center;
+  max-width: 335px;
   color: #FFFFFF;
   margin-bottom: 24px;
 }
 
 .g-btn {
-  padding: 14px 115px;
+  padding: 14px 80px;
   font-family: "Poppins-Medium";
   font-style: normal;
   font-weight: 400;
+  width: 335px;
   font-size: 16px;
   line-height: 20px;
   border-radius: 8px;

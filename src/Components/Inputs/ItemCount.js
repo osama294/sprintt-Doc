@@ -3,6 +3,8 @@ import Modal from '../Modal/Modal'
 import Input from './Input'
 import './input.css'
 import { AiFillMinusSquare, AiFillPlusSquare ,AiOutlineCloseCircle} from 'react-icons/ai'
+import {HiOutlineMinusSm} from 'react-icons/hi'
+import {GoPlusSmall} from 'react-icons/go'
 function ItemCount({ deleteItem,bname, name, indi, placeholder, type, onSelect,getAddAr }) {
     const [show, setShow] = useState(false)
     const [itemVal, setItemVal] = useState("")
@@ -56,8 +58,8 @@ if(quantity <= 1){
             </div>
             <div className='input-quantity'>
                 <p className='field-name'>Quantity</p>
-                <p className='plus' onClick={() => { addItem();onSelect(indi, itemVal, quantity,note) }}><AiFillPlusSquare /></p>
-                <p className='minus' onClick={() => { removeItem(); onSelect(indi, itemVal, quantity,note) }} ><AiFillMinusSquare /></p>
+                <p className='plus' onClick={() => { addItem();onSelect(indi, itemVal, quantity,note) }}><GoPlusSmall/></p>
+                <p className='minus' onClick={() => { removeItem(); onSelect(indi, itemVal, quantity,note) }} ><HiOutlineMinusSm /></p>
                 <input placeholder={placeholder} min={1} type="number" className="quantity" onChange={(e) => { setQuantity(e.target.value); onSelect(indi, itemVal, quantity,note) }} value={quantity} name={name} />
             </div>
             <div className='close'  onClick={()=>{console.log("index", indi);deleteItem(indi)}}>

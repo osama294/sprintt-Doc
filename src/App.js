@@ -111,12 +111,13 @@ useEffect(() => {
        <InstallerDetails getInstallerData={getInstallerData} getModal={getModal}/>
        </div>
        {/* {tab == "installer" && <InstallerDetails/>} */}
-       </div> : <div className='last'>
+       </div> :<div className='layout'> <div className='last'>
         <img src={email} />
         <p>Operation has been completed successfully.<br></br> Check email for verification.</p> 
-        <Button name="Home"  disable={false} func={activeFalse}  />
-       </div> 
-      
+     
+       </div>    
+       <Button name="Home"  disable={false} func={activeFalse}  />
+      </div>
        }
     </div>
     <div>

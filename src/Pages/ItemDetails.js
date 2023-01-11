@@ -211,7 +211,7 @@ const getAddAr = ()=>{
     return (
 
         <>
-            <div className='details'>
+            <div className='layout'> <div className='details'>
                 <Input bname="Business Name" name="businessName"min={0} maxlength={40}  placeholder="Example: Joe Blow Gym" type="text" handleChange={handleChange} />
                 <Input bname="Number of items"min={0} maxlength={100}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
                 <div className='count-container'>
@@ -222,7 +222,7 @@ const getAddAr = ()=>{
                     }
                 </div>
                 
-                <Button name="Proceed Next"funcs={validateInputs}  disable={disable} func={getStep} />
+             
                 {/* <div>
                     <hr></hr>
                       {itemArr.map(items=>{
@@ -230,6 +230,9 @@ const getAddAr = ()=>{
                     })}
                 </div> */}
             </div>
+                   <Button name="Proceed Next"funcs={validateInputs}  disable={disable} func={getStep} />
+            </div>
+           
         </>
 
     )
