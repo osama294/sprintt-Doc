@@ -11,16 +11,22 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
     const [hover, setHover] = useState("")
     const [search, setSearch] = useState("") 
     const [data, setData] = useState(datas)
+    const [active,setActive] = useState(false)
     const handleChange = (e) => {
         console.log("testament", e.target.value)
+        setActive(false)
         setSearch(e.target.value.replace(/  +/g, ' '));
-        
-        
+  
+     
     };
     useEffect(() => {
      setData(datas)
     }, [])
-    
+   const inputCheck =()=>{
+    // if(datas.filter()){
+            
+    // }
+   }
     const mouseOver = (event, name) => {
         setHover(name)
     }
@@ -39,8 +45,8 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
                                     data.map((item, index) => {
                                         if (item.Name.toString().toLowerCase().includes(search.toString().toLowerCase()) || search === '') {
 
-                                            return (<> {hover == item.Name ?  <div key={index} onClick={(e)=>{setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item-hover">{item.Name}</div>
-                                                : <div key={index}  onMouseOver={() => { setHover(item.Name) }} onClick={(e)=>{setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item">{item.Name}</div>}</>)
+                                            return (<> {hover == item.Name ?  <div key={index} onClick={(e)=>{setActive(!active); setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item-hover">{item.Name}</div>
+                                                : <div key={index}  onMouseOver={() => { setHover(item.Name) }} onClick={(e)=>{ setActive(!active);setSearch(item.Name);onSelect(itemNo, item.Name)}} className="item">{item.Name}</div>}</>)
                                         }
                                     })
                                 )
@@ -49,7 +55,7 @@ function Modal({ setShow, itemNo,setItemVal, onSelect }) {
                     </div>
                     <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={setShow} onClick={()=>{console.log("close")}}/>
-                        <button className='suvbtn' onClick={()=>{setShow(false); setItemVal(search)}}>Confirm</button>
+                        <button className='suvbtn' disabled={!active} onClick={()=>{ setShow(false); setItemVal(search)}}>Confirm</button>
                         {/* <Sbutton name="Confirm" type="confirm" func={setShow} onClick={()=>{console.log("close")}}/> */}
                     </div>
                 </div>
