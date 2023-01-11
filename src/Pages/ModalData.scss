@@ -19,7 +19,7 @@
         z-index: 111111111111111111111111111111;
         color: black;
         background-color: #fff;
-        border-radius: 1em;
+        border-radius:  16px;
         transform: translate(-50%, -50%);
         outline: transparent;
         .span{
@@ -38,8 +38,8 @@
     scrollbar-width: none;  /* Firefox */
   }
 .pdf-container{
-    border-radius: 16px;
-    max-height: 365px;
+    border-radius: 0px;
+    max-height: 440px;
     overflow-y: scroll;
     
     .head{
@@ -66,6 +66,7 @@
         display: flex;
         flex-direction: column;
         margin: 0 auto;width: 100%;
+        padding: 0px 10px;
         max-width: 360px;
         .top{
     
@@ -121,12 +122,17 @@
                     width: 24px;
                     height: 21px;
                     border: 1px solid #D3BC8C;
+                    // width: 50px; 
                     color: #D3BC8C;
                 }
                 .ps{
                     font-family: 'Poppins-Medium';
                     font-style: normal;
                     font-weight: 400;
+                    width: 120px; 
+                    overflow: hidden;
+                    text-overflow: ellipsis; 
+                    white-space: nowrap; 
                     font-size: 12px;margin: 0;
                     line-height: 20px;
                     color: #000000;
@@ -137,9 +143,12 @@
     .pdf-row{
         display: flex;width: 100%;
         margin: 0 auto;
+        padding: 0px 10px;
         max-width: 360px;
         .right{
             width: 50%;
+            display: flex;
+            align-items: center;
             p{
                 font-family: 'Poppins-Medium';
                 font-style: normal;
@@ -149,6 +158,10 @@
                 text-align: initial;
                 line-height: 18px;
                 color: #000000;
+                white-space: nowrap; 
+                width: 100%;
+                overflow: hidden;
+                text-overflow: ellipsis; 
             }
         }
         .left{

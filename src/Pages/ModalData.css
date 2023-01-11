@@ -20,7 +20,7 @@
   z-index: 111111111111111100000000000000;
   color: black;
   background-color: #fff;
-  border-radius: 1em;
+  border-radius: 16px;
   transform: translate(-50%, -50%);
   outline: transparent;
 }
@@ -40,8 +40,8 @@
 }
 
 .pdf-container {
-  border-radius: 16px;
-  max-height: 365px;
+  border-radius: 0px;
+  max-height: 440px;
   overflow-y: scroll;
   display: flex;
   flex-direction: column;
@@ -68,6 +68,7 @@
   flex-direction: column;
   margin: 0 auto;
   width: 100%;
+  padding: 0px 10px;
   max-width: 360px;
   /* Hide scrollbar for IE, Edge and Firefox */
 }
@@ -130,6 +131,10 @@
   font-family: "Poppins-Medium";
   font-style: normal;
   font-weight: 400;
+  width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   font-size: 12px;
   margin: 0;
   line-height: 20px;
@@ -139,10 +144,13 @@
   display: flex;
   width: 100%;
   margin: 0 auto;
+  padding: 0px 10px;
   max-width: 360px;
 }
 .pdf-container .pdf-row .right {
   width: 50%;
+  display: flex;
+  align-items: center;
 }
 .pdf-container .pdf-row .right p {
   font-family: "Poppins-Medium";
@@ -153,6 +161,10 @@
   text-align: initial;
   line-height: 18px;
   color: #000000;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 .pdf-container .pdf-row .left {
   width: 50%;
