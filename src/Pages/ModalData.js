@@ -23,6 +23,7 @@ function ModalData({setTab,setActiveLast,count,date, itemDetails, itemCreds, cus
   const updatedArr = itemDetails.filter((item ,index)=>{if(item.item !== "" ) {return item }})
   const [inputs ,setInputs ] = useState({})
 
+
   useEffect(() => {
    setItemCount(itemCreds?.itemCount)
 
@@ -65,14 +66,16 @@ const handleSubmit = (e) => {
         //   Notify.success('Enter Installer Name');
           console.log(response?.message);
         });
-      if (response !== "")  {  
+      if (navigator.onLine == true)  {  
         // console.log("ewf", response)
         setActiveLast()
         getModal()
+}if(navigator.onLine == false){
+    setResponse("Your Internet is not connected")
 }
   };
 
-  console.log("itemsssssssss",itemCount)
+  console.log("itemsssssssss",navigator.onLine)
 
     useEffect(() => {
          
@@ -83,7 +86,7 @@ const handleSubmit = (e) => {
     return (
         <><div className='overlay'>
             <div className='modal'>  
-        { response !=="" ?   <div className='pdf-container' id='report'>
+        { response == null ?   <div className='pdf-container' id='report'>
                 <div className='head'><h4>Order Details</h4></div>
                 <div className='pdf-row'>
                     <div className='left'><h5>Business Name</h5></div>
@@ -127,7 +130,7 @@ const handleSubmit = (e) => {
                     <div className='left'><h5>Notes:</h5></div>
                     <div className='right'><p>{installer?.notes}</p></div>
                 </div>
-            </div>: ""}
+            </div>:     <div className='right'><p>{response}</p></div>}
             <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={getModal} onClick={()=>{console.log("close")}}/>
                         <Sbutton name="Confirm" type="confirm" func={handleSubmit} onClick={()=>{console.log("close")}}/>
