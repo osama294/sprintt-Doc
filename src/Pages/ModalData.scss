@@ -41,7 +41,14 @@
     border-radius: 0px;
     max-height: 440px;
     overflow-y: scroll;
-    
+    .warn{
+     p{
+        font-family: 'Poppins-Medium';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+     }   
+    }
     .head{
         display: flex;
         width: 100%;

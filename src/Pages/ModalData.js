@@ -86,8 +86,11 @@ const handleSubmit = (e) => {
     return (
         <><div className='overlay'>
             <div className='modal'>  
-        { response == null ?   <div className='pdf-container' id='report'>
-                <div className='head'><h4>Order Details</h4></div>
+        {/* { response == null ?   */}
+         <div className='pdf-container' id='report'>
+       
+                <div className='head'><h4>Order Details</h4></div>  
+             {response == null ? ""  : <div className='warn'><p>{response}</p></div>}
                 <div className='pdf-row'>
                     <div className='left'><h5>Business Name</h5></div>
                     <div className='right'><p> {itemCreds?.businessName}</p></div>
@@ -130,7 +133,7 @@ const handleSubmit = (e) => {
                     <div className='left'><h5>Notes:</h5></div>
                     <div className='right'><p>{installer?.notes}</p></div>
                 </div>
-            </div>:     <div className='right'><p>{response}</p></div>}
+            </div>
             <div className='btn-row'>
                         <Sbutton  name="Close" type="close" func={getModal} onClick={()=>{console.log("close")}}/>
                         <Sbutton name="Confirm" type="confirm" func={handleSubmit} onClick={()=>{console.log("close")}}/>
