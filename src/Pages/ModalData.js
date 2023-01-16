@@ -57,7 +57,7 @@ const handleSubmit = (e) => {
         body: JSON.stringify(inputs),
       };
 
-      fetch("https://globaltechnologia.org/webAdmin/api/send_pdf_data", requestOptions)
+      fetch("http://192.168.18.89:8000/api/send_pdf_data", requestOptions)
         .then((response) =>{ return  response.json();} )
         .then((response) => {
           console.log("ewf",response);
