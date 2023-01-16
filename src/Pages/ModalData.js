@@ -68,7 +68,7 @@ function ModalData({ setTab, setActiveLast, count, date, itemDetails, itemCreds,
             body: JSON.stringify(inputs),
         };
 
-        fetch("https://globaltechnologia.org/brodie/api/send_pdf_data", requestOptions)
+        fetch("globaltechnologia.org/webAdmin/api/send_pdf_data", requestOptions)
             .then((response) => { return response.json(); })
             .then((response) => {
                 console.log("ewf", response);
