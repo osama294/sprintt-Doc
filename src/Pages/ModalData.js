@@ -71,7 +71,7 @@ const handleSubmit = (e) => {
         setActiveLast()
         getModal()
 }if(navigator.onLine == false){
-    setResponse("Your Internet is not connected")
+    setResponse("You are not connected to internet")
 }
   };
 
