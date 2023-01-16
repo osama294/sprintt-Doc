@@ -60,6 +60,7 @@ function ModalData({ setTab, setActiveLast, count, date, itemDetails, itemCreds,
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
+                'Access-Control-Allow-Credentials': true,
                 'Access-Control-Allow-Origin': '*',
                 'Access-Control-Allow-Methods': 'POST,PATCH,OPTIONS'
             },
