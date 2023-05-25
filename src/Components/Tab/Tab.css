@@ -2,12 +2,12 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  width: 320px;
+  width:600px;
   gap: 10px;
   margin: 0 auto;
 }
 .tab-row .line {
-  width: 75%;
+  width: 100%;
   margin: 0 auto;
   background-color: black;
   position: absolute;
@@ -28,6 +28,7 @@
   max-height: 48px;
 }
 .tab-row .tab-btn p {
+  width: 200px;
   font-style: normal;
   font-family: "Poppins-Medium";
   font-weight: 400;

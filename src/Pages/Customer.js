@@ -9,10 +9,10 @@ import './Cutomer.css'
 function Customer({ setTab, getData }) {
   const [disabled, setDisabled] = useState(true)
   const [active, setActive] = useState(false)
-  const [date ,setDate] =useState(null)
+  const [date, setDate] = useState(null)
   const [imageURL, setImageURL] = useState(null)
   var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
- const datereg =  {regex:"/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$"};
+  const datereg = { regex: "/^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$" };
   const disable = () => {
     setDisabled(false)
   }
@@ -26,22 +26,18 @@ function Customer({ setTab, getData }) {
   });
   var itemsArr = []
   useEffect(() => {
-    // disable()
-    // if (imageURL !== ("" || null || NaN)) {
-    //   setDisabled(false)
-    //   // enable()
-    // }
+
     enable()
     if (imageURL !== null && details.customerName !== "" && date !== null && details.email !== "") {
       console.log("accepted")
-         if(details.email.match(validRegex) ){
-          disable()
-         }
-         else{
-          enable()
-         }
+      if (details.email.match(validRegex)) {
+        disable()
+      }
+      else {
+        enable()
+      }
     }
-    if(imageURL == null && details.customerName == "" && details.email == "" ,date == null){
+    if (imageURL == null && details.customerName == "" && details.email == "", date == null) {
       enable()
     }
     // else
@@ -49,118 +45,213 @@ function Customer({ setTab, getData }) {
     //       setActive(false)
     // }
 
-  }, [details,date,imageURL])
-  // useEffect(() => {
-    
-  //   if (imageURL !==  null) {
-  //     setDisabled(false)
-  //     disable()
-  //   }
-  // }, [imageURL])
+  }, [details, date, imageURL])
+  const [isLoading, setIsLoading] = useState(false);
+  const [responseText, setResponseText] = useState('');
 
-  // const getSignature = ()=>{
-  //   setDisabled(false)
-  // }
+
+  const [formData, setFormData] = useState({
+    background: '',
+    businessModel: '',
+    productVision: '',
+    requirements: '',
+    limitations: '',
+    competitors: '',
+    design: '',
+    stage: '',
+    contactPerson: '',
+    timelines: '',
+    businessRequirements: '',
+  });
+  const [isFormValid, setIsFormValid] = useState(false);
+
   const handleChange = (e) => {
-    e.preventDefault()
-    setDetails({
-      ...details,
-      [e.target.name]: e.target.value,
-    });
-    e.preventDefault()
+    const { name, value } = e.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
+    setIsFormValid(isFormComplete());
   };
-  const getSignatureValue = (signature) => {
-    if(imageURL == null){
-      enable()
-    }else{
-       disable()}
-    setImageURL(signature)
 
-   
-  }
-
-  const validateInputs = ()=>{
- if(details.customerName !== "" && details.email !== "" && !date == null ){
-  if( date !== null){
-  
-  } if(details.customerName !== ""){
-    
-  }
-  if(details.email !== ""){
-    
-  } if(imageURL !== null){
-  
-  }
-  
- }
-else { if(details.customerName == "" && details.email == "" && date == null ){
-    // toast.error("Please Fill All Fields", {
-    //   position: toast.POSITION.TOP_CENTER
-    // });
-    Notify.failure('Please Fill All Fields"');
-
-  }else{   if( date == null){
-      // toast.error("Please Select Date", {
-      //   position: toast.POSITION.TOP_CENTER
-      // });
-      Notify.failure('Please Select Date');
-
-    } if(details.customerName == ""){
-        // toast.error("Please Enter Customer Name", {
-        //     position: toast.POSITION.TOP_CENTER
-        //   });
-        Notify.failure('Please Enter Customer Name');
-
+  const isFormComplete = () => {
+    for (const field in formData) {
+      if (formData[field] === '') {
+        return false;
+      }
     }
-    if(details.email == ""){
-        // toast.error("Please Enter Email", {
-        //     position: toast.POSITION.TOP_CENTER
-        //   });
-        Notify.failure('Please Enter Email');
+    return true;
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!isFormValid) {
+      return; // Prevent submission if the form is incomplete
     }
- if(details.email !==  "") {if(!details.email.match(validRegex)){
-      // toast.warn("Enter Valid Email !", {
-      //   position: toast.POSITION.TOP_CENTER
-      // });
-      Notify.failure('Enter Valid Email !');
+    setIsLoading(true);
 
-    }}
-    if(imageURL == null){
-      // toast.warn("Enter Your Signature!", {
-      //   position: toast.POSITION.TOP_CENTER
-      // });
-      Notify.failure('Enter Your Signature!');
+    const formattedData = {
+      model: "text-davinci-003",
+      prompt: `Generate a requriment document for an application that has the following properties:\n\nBackground: ${formData.background}\n\nBusiness Model: ${formData.businessModel}\n\nProduct Vision: ${formData.productVision}\n\nRequirements: ${formData.requirements}\n\nKnown Limitations and Risks: ${formData.limitations}\n\nCompetitors: ${formData.competitors}\n\nDesign Requirements: ${formData.design}\n\nCurrent Stage of the Application: ${formData.stage}\n\nContact Person on Behalf of the Client: ${formData.contactPerson}\n\nTimelines: ${formData.timelines}\n\nBusiness Requirements: ${formData.businessRequirements}`,
+      max_tokens: 7,
+      temperature: 0
+    };
 
+    console.log(formattedData)
+    try {
+      const response = await fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer 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'
+        },
+        body: JSON.stringify(formattedData),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        // Use the generated response from the API as needed
+        console.log(data.response);
+      } else {
+        console.error('Error:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error:', error);
     }
-  }}
-
-}
-  const getStep = () => {
-    getData(details, imageURL,date)
-    // setActive("3")
-    setTab("installer")
-  }
+  };
   return (
 
     <>
-      {/* <ToastContainer /> */}
-      <div className='layout'>
-      <div className='customer'>
-        <Input bname="Customer Name" name="customerName" placeholder="Example : Linda Brodie" type="text" handleChange={handleChange} />
-        <div className='input-container'>
-        <p className='field-name'>Date</p>
-        <Calendar dateFormat="mm/dd/yy" value={date} placeholder="mm/dd/yyyy" onChange={(e) => {setDate(e.value) ;console.log("dates",e.value)}} style={{width:"335px",border:"none",padding:"0px"}} className='input' inputClassName="input"/>
-        {/* <input placeholder={placeholder} min={min} value={val} type={type} className="input" name={name} onChange={handleChange} /> */}
-      </div>
-      <Input bname="Customer Email" name="email" placeholder="bindabrodie@gmail.com" type="text" handleChange={handleChange} />
-        {/* <Input bname="Select Date" name="date" placeholder="dd/mm/yyyy" type="text" handleChange={handleChange} /> */}
-        <Signature active={active} setImageURL={getSignatureValue} imageURL={imageURL} />
-       </div>  
-       <Button name="Proceed Next" disable={disabled} funcs={validateInputs} page="customer" func={getStep} />
-      </div>
-  
-      
+      <div className="container2">
+        <div className="left-section">
+
+          <div className="form-container">
+            <h1 className="form-heading">Project Requirements Form</h1>
+            <form onSubmit={handleSubmit} className="form">
+              <label className="form-label">
+                Background on the application itself and its purpose:
+                <textarea
+                  className="form-textarea"
+                  name="background"
+                  value={formData.background}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Business Model:
+                <textarea
+                  className="form-textarea"
+                  name="businessModel"
+                  value={formData.businessModel}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Product Vision:
+                <textarea
+                  className="form-textarea"
+                  name="productVision"
+                  value={formData.productVision}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Requirements:
+                <textarea
+                  className="form-textarea"
+                  name="requirements"
+                  value={formData.requirements}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Known Limitations and Risks:
+                <textarea
+                  className="form-textarea"
+                  name="limitations"
+                  value={formData.limitations}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Competitors:
+                <textarea
+                  className="form-textarea"
+                  name="competitors"
+                  value={formData.competitors}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Design Requirements:
+                <textarea
+                  className="form-textarea"
+                  name="design"
+                  value={formData.design}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Current Stage of the Application:
+                <textarea
+                  className="form-textarea"
+                  name="stage"
+                  value={formData.stage}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Contact Person on Behalf of the Client:
+                <input
+                  className="form-input"
+                  type="text"
+                  name="contactPerson"
+                  value={formData.contactPerson}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Timelines:
+                <textarea
+                  className="form-textarea"
+                  name="timelines"
+                  value={formData.timelines}
+                  onChange={handleChange}
+                />
+              </label>
+              <label className="form-label">
+                Business Requirements:
+                <textarea
+                  className="form-textarea"
+                  name="businessRequirements"
+                  value={formData.businessRequirements}
+                  onChange={handleChange}
+                />
+              </label>
+              <button type="submit" className="form-submit-button" disabled={!isFormValid}>
+                Submit
+              </button>
+            </form>
+          </div>
+
+        </div>
+        <div className="right-section">
+
+          {isLoading && (
+            <div>
+              <div className="loader" />
+              <p>Generating Requirement Documentation...</p>
+            </div>
+          )}
+
+          {/* Render API response when available */}
+          {responseText && <p>{responseText} : </p>}
+        </div>
+      </div >
+
+
+
+
     </>
 
   )

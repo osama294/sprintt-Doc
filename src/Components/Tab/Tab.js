@@ -18,9 +18,9 @@ function Tab({ setTab, tab, actives, sendDataToParent }) {
     <>
       <div className='tab-row'>
         {/* <div className='line'> </div> */}
-        {tab == "details" ? <TabButton name="Item Details"color="#D3BC8C" icon={c1} setActive={setTab} state="details" /> : <TabButton name="Item Details" color="black" icon={g1} setActive={setTab} onClick={()=>{setTab("details")}} state="details" />}
-        {tab == "customer" ? <TabButton name="Customer"color="#D3BC8C" icon={c2} setActive={setTab} state="customer" /> : <TabButton name="Customer"color="black" icon={g2} setActive={setTab} state="customer" />}
-        {tab == "installer" ? <TabButton name="Installer Details" color="#D3BC8C"icon={c3} setActive={setTab} state="installer" /> : <TabButton color="black" name="Installer Details" icon={g3} state="installer" setActive={setTab} />}
+        {tab == "details" ? <TabButton name="Client SignIn" color="#ba68c8" icon={c2} setActive={setTab} state="details" /> : <TabButton name="Client SignIn" color="black" icon={g2} setActive={setTab} onClick={() => { setTab("details") }} state="details" />}
+        {tab == "customer" ? <TabButton name="Requirement Document" color="#ba68c8" icon={c1} setActive={setTab} state="customer" /> : <TabButton name="Requirement Document" color="black" icon={g1} setActive={setTab} state="customer" />}
+        {tab == "installer" ? <TabButton name="Documentation" color="#ba68c8" icon={c3} setActive={setTab} state="installer" /> : <TabButton color="black" name="Documentation" icon={g3} state="installer" setActive={setTab} />}
       </div>
     </>
   )

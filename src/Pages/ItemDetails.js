@@ -5,6 +5,10 @@ import "react-toastify/dist/ReactToastify.css";
 import Input from '../Components/Inputs/Input'
 import ItemCount from '../Components/Inputs/ItemCount';
 import './Details.css'
+import GoogleSignIn from '../Components/GoogleSignIn/GoogleSignIn';
+import { GoogleLogin } from 'react-google-login';
+
+
 var temp;
 temp = { item: "", count: "" }
 function ItemDetails({ setTab, itemDetails, setItemDetails, setActive }) {
@@ -16,223 +20,52 @@ function ItemDetails({ setTab, itemDetails, setItemDetails, setActive }) {
     });
     const [initialCount, setInitialCount] = useState(0)
     const [trues, setTrues] = useState(0)
-     const [tempArr,setTempArr]= useState([])
+    const [tempArr, setTempArr] = useState([])
     const [itemArr, setItemArr] = useState([])
-let t = itemArr
+    let t = itemArr
     //   updateCount
     useEffect(() => {
-      
+
     }, [initialCount])
-    
-    const deleteItem = (indi )=>{
-        setDetails( {...details , itemCount : details.itemCount - 1})
-        // setDetails({
-        //     ...details,
-        //     "itemCount":details.itemCount - 1,
-        // });
-        setInitialCount(initialCount => initialCount - 1)
-        const x =   itemArr.filter((item,index)=>{
-            if(index !== indi  ) return item
-      })
-        itemArr.filter((item,index)=>{
-              if(index !== indi  ) return item
-        })
-        setItemArr(x)
-        console.log("deleted",itemArr,initialCount,x)
-    }
-    const getValuesInParent = (index, value, quantity,note) => {
-          
-        
-        if(value !== '')
-        setTempArr([...tempArr,{item:value,count:quantity,note:note}])
-        itemArr[index ] = { item: value, count: quantity ,note:note}
-        // if(index == )
-        // setItemDetails(t, details) uncomment imp
-        
-        console.log("old testament234324234234324", t, tempArr);
-         console.log("asdewf", itemArr)
-    
-        // checkItemVal()
-        // if (t[index - 1].item !== '') { setTrues(trues + 1) }
-    }
-    const disablebtn = () => {
-        setDisable(true)
-    }
-    const checkInputs = () => {
-        // console.log("bsdk")
-        // if (details.item == (0 || NaN || "") || details.businessName == "") {
-        //     setDisable(true)
-        // }
-        // if (details.businessName !== "" && details.itemCount !== (0 || NaN || "") && tempArr.length == initialCount) {
-        //     setDisable(false)
-        // }
-        // if(details.businessName == ""){
-        //     setDisable(true)
-        // }
-        // else 
-        //   if( initialCount == itemArr.length){
-            // if(initialCount == 0 &&  itemArr.length == 0) {
-            //     setDisable(true)
-            //     return
-            // }
-            //  else
-              if(details.itemCount !== 0  && details.businessName !== ""){
-                    // if(){
-                        setDisable(false)
-                    }
-                    else{
-                        setDisable(true)
-                    // }
-              }
-        // }
-        // else{
-        //     setDisable(true)
-        // }
-    }
+
+
 
     useEffect(() => {
-        checkInputs()
+
         // getValuesInParent()
-    }, [details,itemArr])
+    }, [details, itemArr])
 
-    // const checkItemVal = () => {
-
-    //     if (details.item !== (0 || NaN || "") && details.businessName !== "") {
-    //         let check = false
-    //         console.log("halsey", itemArr.length, trues)
-    //         itemDetails.forEach((item) => {
-    //             if (item.item == "") {
-    //                 check = true
-    //             } else {
-    //                 check = false
-    //             }
-    //         })
-    //         setDisable(check)
-    //     }
-    // }
-    const updateCount = (count) => {
-        return setInitialCount(prev => prev = parseInt(count))
-    }
-
-    const checkItemCount = () => {
-        console.log("initail", details.itemCount, initialCount)
-        if (details.itemCount !== (0 || NaN || "")) {
-            updateCount(details.itemCount)
-        }
-        if (details.itemCount > initialCount) {
-
-            updateCount(parseInt(details.itemCount))
-        }
-        if (details.itemCount == initialCount) {
-            console.log("initial render")
-        }
-    }
-    let d = []
-    // useEffect(() => {
-    //     console.log("ap dhillon")
-         
-    //     // for (var i = 1; i <= (itemArr.length > 0 ? (initialCount - itemArr.length) : initialCount); i++) {
-    //     //     // d = [...d, temp]
-    //     // }
-    //     setItemArr(d)
-    //     // setItemDetails(itemArr)
-    //     // window.alert(initialCount  , itemArr.length,itemDetails)
-
-    //     console.log("older testament", d, d, d)
-
-    // }, [details])
-const [addAr,setAddAr]=useState([])
-    useEffect(() => {
-        console.log("getting items  before change",tempArr)
-        if (details.itemCount !== 0) {
-            checkItemCount()
-     }
-    //    setAddAr([...addAr,...itemArr])
-        // setItemDetails(addAr,details)
-        // itemDetails.push()
-        // setItemArr([])
-    }, [details.itemCount])
-const getAddAr = ()=>{
-
-    setItemDetails(itemArr,details)
-}
-    const handleChange = (e) => {
-        setDetails({
-            ...details,
-            [e.target.name]: e.target.value,
-        });
-        console.log("minus",details.itemCount)
-        if(e.target.value > 100 ){
-            // Notify.failure('Please Enter Count Less Than 100');
-            // toast.error("Please Enter Less Than 100", {
-            //     position: toast.POSITION.TOP_LEFT
-            //   });
-            setDetails({...details,itemCount:100})
-        }if(e.target.value <  1){
-            // Notify.failure('Count must be greater than 0');
-            // toast.error("Please Greater Than 0 ", {
-            //     position: toast.POSITION.TOP_LEFT
-            //   });
-            
-              setDetails({...details,itemCount:0})
-        }
-        
-        if (details.businessName !== "") { setDisable(false) }
-    };
     const getStep = () => {
-        setItemDetails(itemArr,details)
+        setItemDetails(itemArr, details)
         // setActive("2")
         setTab("customer")
     }
-    // const notify = () => {
-    //   Notify.success('Sol lucet omnibus');
 
-    // }
-    const validateInputs = ()=>{
-   if(details.businessName !== "" && details.itemCount !== 0){
-   return
-   }
-        else{    if(details.businessName == ""){
-            Notify.failure('Please Enter Business Name');
+    const responseGoogle = (response) => {
+        console.log(response);
+        // Handle the response from Google Sign-In
+        getStep()
 
-            // toast.error("Please Enter Business Name", {
-            //     position: toast.POSITION.TOP_LEFT
-            //   });
-        }
-        if(details.itemCount == 0){
-            // toast.error("Please Enter Count", {
-            //     position: toast.POSITION.TOP_LEFT
-            //   });
-            Notify.failure('Please Enter Count');
-        
-        }}
-    }
+
+    };
+
 
     return (
-
         <>
-            <div className='layout'> <div className='details'>
-                <Input bname="Business Name" name="businessName"min={0} maxlength={40}  placeholder="Example: Joe Blow Gym" type="text" handleChange={handleChange} />
-                <Input bname="Number of items"min={0} maxlength={100}  val={details.itemCount} name="itemCount" placeholder="Please Enter The Number Of Items" type="number" handleChange={handleChange} />
-                <div className='count-container'>
-                    {
-                        Array.from({ length: initialCount }).map((name, index) => {
-                            return <ItemCount deleteItem={deleteItem} key={index} addAr={addAr} getAddAr={getAddAr} name={name} onSelect={getValuesInParent} indi={index } />
-                        })
-                    }
+            <div>
+                <h1>Welcome, Please Sign In to Proceed</h1>
+                <div>
+                    <GoogleLogin
+                        clientId="346871269765-url6gpn3tubg9nhu4h43627rv5d1a79u.apps.googleusercontent.com"
+                        buttonText="Sign in with Google"
+                        onSuccess={responseGoogle}
+                        onFailure={responseGoogle}
+                        cookiePolicy={'single_host_origin'}
+                    />
                 </div>
-                
-             
-                {/* <div>
-                    <hr></hr>
-                      {itemArr.map(items=>{
-                        return <div>{items.item +" fwewef " +items.count }</div>  
-                    })}
-                </div> */}
             </div>
-                   <Button name="Proceed Next"funcs={validateInputs}  disable={disable} func={getStep} />
-            </div>
-           
+
+
         </>
 
     )
