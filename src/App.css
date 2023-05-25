@@ -1,0 +1,101 @@
+.App {
+  font-family: 'Poppins-Medium';
+  text-align: center;
+}
+
+.App-logo {
+  height: 20vmin;
+  pointer-events: none;
+}
+
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+/* .sigCanvas{
+  width: 100vw;
+  height: 100vh;
+} */
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  background: #E2E3E3;
+}
+ .container .upper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ 
+}
+.upper .logo{
+  padding: 56px 0px 24px 0px;
+
+}
+.container .lower{
+  /* height: calc(100vh - 150px); */
+  box-shadow: 0px -5px 12px rgba(0, 0, 0, 0.2);
+   border-radius: 48px 48px 0px 0px;
+   padding: 24px 0px 24px 0px;
+   /* margin-bottom: 24px; */
+  background:white ;
+
+}
+.show{
+  display: block;
+}
+.hide{
+  display: none;
+}
+
+.last{
+  height: calc(100vh - 150px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.last img{
+  width: 152px;
+  height: 156px;
+}
+.last p{
+margin-top: 32px;
+font-family: 'Poppins-Medium';
+font-style: normal;
+font-weight: 400;
+font-size: 14px;
+line-height: 21px;
+text-align: center;
+
+color: #000000;
+
+}
+.last .btn {
+margin-top: 120px;
+}

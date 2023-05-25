@@ -1,0 +1,100 @@
+.modal {
+    position: absolute;
+    top: 50%;
+   .btn-row{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    position: relative;
+   }
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    font-size: 28px;
+    width: 330px !important;
+    max-width: 386px;
+    z-index: 111111111111111111111111111111;
+    color: black;
+    background-color: #fff;
+    border-radius: 1em;
+    transform: translate(-50%, -50%);
+    outline: transparent;
+    .item-box{
+      .input-container{
+        width: 300px;
+        .input{
+          min-width: 300px !important;
+        }
+      }
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        align-items: center;
+        .item-container{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            height: 200px;
+            border: 1px solid black;
+            border-radius: 8px;
+            overflow-y: scroll;
+            gap: 8px;
+            width: 300px;
+            .item{
+font-family: 'Poppins-Medium';                font-style: normal;
+                font-weight: 400;
+                font-size: 12px;
+                width: 100%;
+                line-height: 18px;
+                padding: 5px 0px 5px 13px;   
+                text-align: initial;
+                color: #000000;
+            }
+            .item-hover{
+                font-style: normal;
+                font-weight: 400;
+                width: 100%;
+                text-align: initial;
+                font-size: 12px;
+                line-height: 18px;
+                padding: 5px 0px 5px 13px;   
+                color: #000000;
+                background:rgba(0, 0, 0, 0.08);
+            }
+             
+        }
+        .item-container::-webkit-scrollbar {
+            display: none;
+          }
+          
+          /* Hide scrollbar for IE, Edge and Firefox */
+          .item-container {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+          }
+    }
+
+    .modal-row{
+        display: flex;
+        align-items: flex-end;
+        .close{
+        color: #D3BC8C;
+        padding: 10px  10px 0px 0px;
+        font-size: 24px;
+        }
+        justify-content: flex-end;
+    }
+  }
+  .overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 111111111111111111;
+  }

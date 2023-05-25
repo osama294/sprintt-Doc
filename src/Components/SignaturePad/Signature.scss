@@ -1,0 +1,112 @@
+.sigan{ max-width: 365px;
+    // max-height: 200px;
+    height: 295px;
+    .sigan-row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+.field-name{
+    font-family: 'Poppins-Medium';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    color: black;
+    // margin-bottom: 9px;
+}
+.field-note{
+    font-family: "Poppins-Medium";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 20px;
+    text-align: initial;
+    color: black;
+    // margin-bottom: 9px;
+}
+.span{
+    font-family: 'Poppins-Medium';
+    font-style: normal;
+    font-weight: 400;
+    cursor: pointer;
+    font-size: 10px;
+    line-height: 20px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: rgba(0, 0, 0, 0.5);
+}
+    border: 1px  black;
+.sigCanvas{
+    width: 90%;
+    margin: 0 auto;
+    height: 160px;
+    // max-width: 3px;
+    // max-height: 200px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+.sigCan{
+    width: 330px;
+    height: 200px;
+    border-radius: 8px;
+    color: #D3BC8C;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 60px;
+}
+.sig-box{
+    align-items: center;
+    justify-content: center;
+display: flex;
+flex-direction: column;
+gap: 10px;
+// .suvbtn{
+//     width: 335px  !important;
+// }
+}
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 111111111111111111;
+    .modal {
+        display: flex;
+        flex-direction: column;
+        .btn-row{
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            position: relative;
+           }
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: flex;
+        flex-direction: column;
+        padding: 0px !important;
+        font-size: 28px;
+        width: 330px;
+        max-width: 386px;
+        z-index: 111111111111111111111111111111;
+        color: black;
+        background-color: #fff;
+        border-radius: 1em;
+        transform: translate(-50%, -50%);
+        outline: transparent;
+      }
+  }
+  .signat{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }

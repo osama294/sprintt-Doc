@@ -1,0 +1,126 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    .field-name{
+font-family: 'Poppins-Medium';
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: black;
+        margin-bottom: 9px;
+    }
+    .input{
+        
+        font-family: 'Poppins-Medium';
+
+        outline: none;
+        font-style: normal;
+        min-width: 335px;
+        font-weight: 400;
+        border:solid 1px #797D88;
+        border-radius: 8px;
+        color: rgba(0, 0, 0);;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 16px 0px 14px 10px ;
+    }    
+}
+
+
+.input-quantity{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+    .field-name{
+font-family: 'Poppins-Medium';
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: black;
+        margin-bottom: 9px;
+    }  
+    .plus{
+        margin: 0px;
+        font-size: 26px;
+        width: 40px;
+        top: 50px;
+        height: 40px;
+        right: 5px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        justify-content: center;
+        background: #E2E3E3;
+        border-radius: 4px;
+    }
+   
+    .minus{
+        margin: 0px;
+        font-size: 20px;
+        width: 40px;
+        top: 50px;
+        height: 40px;
+        left: 5px;
+        display: flex;
+        align-items: center;
+        position: absolute;
+        justify-content: center;
+        background: #E2E3E3;
+        border-radius: 4px;
+    }
+    .quantity{
+font-family: 'Poppins-Medium';
+
+        font-style: normal;
+        max-width: 131px;
+        width: 130px;
+        // width: 100%;
+        font-weight: 400;
+        border:solid 1px #797D88;
+        border-radius: 8px;
+        color: rgba(0, 0, 0);;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 16px 0px 14px 62px ;
+    }    
+  
+}
+
+
+.input-item{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    align-items: flex-start;
+     max-width: 195px;
+    .field-name{
+font-family: 'Poppins-Medium';
+
+        font-style: normal;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 20px;
+        color: black;
+        margin-bottom: 9px;
+    }   
+    .item{
+font-family: 'Poppins-Medium';
+
+        font-style: normal;
+         width: 172px;
+        font-weight: 400;
+        border:solid 1px #797D88;
+        border-radius: 8px;
+        color: rgba(0, 0, 0);;
+        font-size: 12px;
+        line-height: 18px;
+        padding: 16px 0px 14px 10px ;
+    }    
+}
